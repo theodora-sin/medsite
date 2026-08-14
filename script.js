@@ -17,7 +17,6 @@ const ICONS = {
   ae:       '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3v6M12 21v-6M3 12h6M21 12h-6"/><circle cx="12" cy="12" r="9"/></svg>',
 };
 
-/* ---------------- static UI text ---------------- */
 function renderStaticText(){
   document.documentElement.lang = currentLang === 'zh' ? 'zh-Hant' : 'en';
   document.getElementById('emergencyBanner').innerHTML = t(UI.emergencyBanner);
@@ -58,17 +57,31 @@ const TABS = [
 
 function renderTabBar(){
   const box = document.getElementById('tabButtons');
-  box.innerHTML = TABS.map(tab => `
-    <button class="tab-btn" data-tab="${tab.key}" role="tab" aria-selected="${activeTab === tab.key}">${t(tab.label)}</button>
-  `).join('');
-  box.querySelectorAll('.tab-btn').forEach(btn=>{
+  const indicator=document.getElementById('tabIndicator');
+  box.querySelectorAll('.tab-btn').forEach(el => el.remove());
+  TABS.forEach(tab =>{
+    const btn = document.createElement('button');
+    btn.className='tab-btn';
+    btn.dataset.tab =tab.key;
+    btn.setAttribute('aria-selected', activeTab === tab.key);
+    btn.textContent= t(tab.label);
     btn.addEventListener('click', ()=>{
-      if(btn.dataset.tab === activeTab) return;
-      activeTab = btn.dataset.tab;
+      activeTab= btn.dataset.tab;
+      localStorage.setItem('medsite_tab', activeTab);
       showActiveTab();
-      document.querySelector('.tabbar').scrollIntoView({behavior:'smooth', block:'start'});
+      document.querySelector('tabbar').scrollIntoView({behaviour:'smooth', block:'start'})
     });
+    box.appendChild(btn);
   });
+  box.appendChild(indicator);
+  moveTabIndicator();
+}
+function moveTabIndicator(){
+  const indicator=document.getElementById('tabIndicator');
+  const activeBtn = document.querySelector(`.tab-btn[data-tab="${activeTab}"]`);
+  if(!activeBtn)reuturn;
+  indicator.style.width = activeBtn.offsetWidth + 'px';
+  indicator.style.transform = `translateX(${activeBtn.offsetLeft}px)`;
 }
 
 function showActiveTab(){
@@ -78,6 +91,7 @@ function showActiveTab(){
   document.querySelectorAll('.tab-btn').forEach(btn=>{
     btn.setAttribute('aria-selected', btn.dataset.tab === activeTab ? 'true' : 'false');
   });
+  moveTabIndicator();
 }
 
 function renderChips(){
@@ -191,6 +205,16 @@ function observeReveal(nodes){
   nodes.forEach(node => revealObserver.observe(node));
 }
 
+function initScrollTop(){
+  const btn=document.getElementById('scrollTop');
+  window.addEventListener('scroll',()=>{
+    btn.hidden=false;
+    btn.classList.toggle('visible, window.scrollY>500');
+  }, {passive:true});
+  btn.addEventListener('click' , ()=>{
+    window.scrollTo({top:0, behavior:'smooth'});
+  })
+}
 
 function renderAll(){
   renderStaticText();
@@ -204,4 +228,6 @@ function renderAll(){
 }
 
 renderAll();
+initScrollTop();
 document.getElementById('searchInput').addEventListener('input', renderCards);
+window.addEventListener('resize', moveTabIndicator)
