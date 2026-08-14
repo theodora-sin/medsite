@@ -1,13 +1,13 @@
-let currentLang = 'en';
+let currentLang = localStorage.getItem('medsite_lang') || 'en';
 let activeTiers = new Set(['all']);
-let activeTab = 'guide';
+let activeTab = localStorage.getItem('medsite_tab') || 'guide';
 const tierByKey = Object.fromEntries(TIERS.map(t => [t.key, t]));
-
+ 
 function t(field){
   if(field && typeof field === 'object') return field[currentLang];
   return field;
 }
-
+ 
 const ICONS = {
   self:     '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12 12 5l8 7"/><path d="M6 11v8h12v-8"/><path d="M10 19v-5h4v5"/></svg>',
   pharmacy: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M12 8v8M8 12h8"/></svg>',
@@ -16,7 +16,7 @@ const ICONS = {
   utc:      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M9 9l6 6M15 9l-6 6"/></svg>',
   ae:       '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3v6M12 21v-6M3 12h6M21 12h-6"/><circle cx="12" cy="12" r="9"/></svg>',
 };
-
+ 
 function renderStaticText(){
   document.documentElement.lang = currentLang === 'zh' ? 'zh-Hant' : 'en';
   document.getElementById('emergencyBanner').innerHTML = t(UI.emergencyBanner);
@@ -31,7 +31,7 @@ function renderStaticText(){
   document.getElementById('storyIntro').innerHTML = t(UI.storyIntro);
   document.getElementById('footerText').innerHTML = t(UI.footerText);
 }
-
+ 
 function renderLangToggle(){
   const box = document.getElementById('langToggle');
   box.innerHTML = `
@@ -42,48 +42,52 @@ function renderLangToggle(){
     btn.addEventListener('click', ()=>{
       if(btn.dataset.lang === currentLang) return;
       currentLang = btn.dataset.lang;
+      localStorage.setItem('medsite_lang', currentLang);
       document.body.classList.add('lang-fading');
       renderAll();
       setTimeout(()=> document.body.classList.remove('lang-fading'), 320);
     });
   });
 }
-
+ 
 const TABS = [
   { key:'guide',   label:{en:'Guide', zh:'指南'} },
   { key:'support', label:{en:'Support', zh:'支援'} },
   { key:'story',   label:{en:'Story', zh:'故事'} },
 ];
-
+ 
 function renderTabBar(){
   const box = document.getElementById('tabButtons');
-  const indicator=document.getElementById('tabIndicator');
+  const indicator = document.getElementById('tabIndicator');
   box.querySelectorAll('.tab-btn').forEach(el => el.remove());
-  TABS.forEach(tab =>{
+  TABS.forEach(tab=>{
     const btn = document.createElement('button');
-    btn.className='tab-btn';
-    btn.dataset.tab =tab.key;
+    btn.className = 'tab-btn';
+    btn.dataset.tab = tab.key;
+    btn.setAttribute('role', 'tab');
     btn.setAttribute('aria-selected', activeTab === tab.key);
-    btn.textContent= t(tab.label);
+    btn.textContent = t(tab.label);
     btn.addEventListener('click', ()=>{
-      activeTab= btn.dataset.tab;
+      if(btn.dataset.tab === activeTab) return;
+      activeTab = btn.dataset.tab;
       localStorage.setItem('medsite_tab', activeTab);
       showActiveTab();
-      document.querySelector('tabbar').scrollIntoView({behaviour:'smooth', block:'start'})
+      document.querySelector('.tabbar').scrollIntoView({behavior:'smooth', block:'start'});
     });
     box.appendChild(btn);
   });
   box.appendChild(indicator);
   moveTabIndicator();
 }
+ 
 function moveTabIndicator(){
-  const indicator=document.getElementById('tabIndicator');
+  const indicator = document.getElementById('tabIndicator');
   const activeBtn = document.querySelector(`.tab-btn[data-tab="${activeTab}"]`);
-  if(!activeBtn)reuturn;
+  if(!activeBtn) return;
   indicator.style.width = activeBtn.offsetWidth + 'px';
   indicator.style.transform = `translateX(${activeBtn.offsetLeft}px)`;
 }
-
+ 
 function showActiveTab(){
   document.getElementById('guide').hidden = activeTab !== 'guide';
   document.getElementById('support').hidden = activeTab !== 'support';
@@ -93,7 +97,7 @@ function showActiveTab(){
   });
   moveTabIndicator();
 }
-
+ 
 function renderChips(){
   const row = document.getElementById('chipRow');
   const allChip = `<button class="chip tier-all" data-tier="all" aria-pressed="${activeTiers.has('all')}">${t(UI.chipAll)}</button>`;
@@ -123,22 +127,21 @@ function syncChips(){
     chip.setAttribute('aria-pressed', activeTiers.has(chip.dataset.tier) ? 'true' : 'false');
   });
 }
-
-
+ 
 function renderCards(){
   const q = document.getElementById('searchInput').value.trim().toLowerCase();
   const grid = document.getElementById('cardGrid');
   const empty = document.getElementById('emptyState');
-
+ 
   const filtered = SITUATIONS.filter(s=>{
     const tierMatch = activeTiers.has('all') || activeTiers.has(s.tier);
     const text = (t(s.title) + ' ' + t(s.when) + ' ' + t(s.ask) + ' ' + s.kw).toLowerCase();
     const searchMatch = !q || text.includes(q);
     return tierMatch && searchMatch;
   });
-
+ 
   document.getElementById('resultCount').textContent = `${filtered.length} / ${SITUATIONS.length}`;
-
+ 
   if(filtered.length === 0){
     grid.innerHTML = '';
     empty.hidden = false;
@@ -146,7 +149,7 @@ function renderCards(){
     return;
   }
   empty.hidden = true;
-
+ 
   grid.innerHTML = filtered.map(s=>{
     const tier = tierByKey[s.tier];
     return `
@@ -160,10 +163,10 @@ function renderCards(){
       </article>
     `;
   }).join('');
-
+ 
   observeReveal(grid.querySelectorAll('.card'));
 }
-
+ 
 function renderSupport(){
   const grid = document.getElementById('supportGrid');
   grid.innerHTML = SUPPORT.map(s => `
@@ -174,7 +177,7 @@ function renderSupport(){
   `).join('');
   observeReveal(grid.querySelectorAll('.support-item'));
 }
-
+ 
 function renderStory(){
   const wrap = document.getElementById('storyTimeline');
   wrap.innerHTML = STORY.map(s => `
@@ -189,6 +192,7 @@ function renderStory(){
   observeReveal(wrap.querySelectorAll('.timeline-item'));
   observeReveal([wrap]);
 }
+ 
 
 let revealObserver;
 function observeReveal(nodes){
@@ -206,16 +210,16 @@ function observeReveal(nodes){
 }
 
 function initScrollTop(){
-  const btn=document.getElementById('scrollTop');
-  window.addEventListener('scroll',()=>{
-    btn.hidden=false;
-    btn.classList.toggle('visible, window.scrollY>500');
-  }, {passive:true});
-  btn.addEventListener('click' , ()=>{
-    window.scrollTo({top:0, behavior:'smooth'});
-  })
+  const btn = document.getElementById('scrollTop');
+  window.addEventListener('scroll', ()=>{
+    btn.hidden = false;
+    btn.classList.toggle('visible', window.scrollY > 500);
+  }, { passive:true });
+  btn.addEventListener('click', ()=>{
+    window.scrollTo({ top:0, behavior:'smooth' });
+  });
 }
-
+ 
 function renderAll(){
   renderStaticText();
   renderLangToggle();
@@ -226,8 +230,8 @@ function renderAll(){
   renderStory();
   showActiveTab();
 }
-
+ 
 renderAll();
 initScrollTop();
 document.getElementById('searchInput').addEventListener('input', renderCards);
-window.addEventListener('resize', moveTabIndicator)
+window.addEventListener('resize', moveTabIndicator);
