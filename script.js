@@ -23,7 +23,7 @@ function renderStaticText(){
     document.getElementById('title').textContent= t(UI.title);
     document.getElementById('heroSub').textContent= t(UI.heroSub);
     document.getElementById('heroByline').textContent= t(UI.heroByline);
-    document.getElementById('SearchInput').placeholder=t(UI.searchPlaceholder);    
+    document.getElementById('searchInput').placeholder=t(UI.searchPlaceholder);    
     document.getElementById('section1Title').textContent=t(UI.section1Title);
     document.getElementById('section1Note').textContent=t(UI.section1Note);
     document.getElementById('section2Title').textContent=t(UI.section2Title);
@@ -102,100 +102,108 @@ function syncChips(){
         chip.setAttribute('aria-pressed', activeTiers.has(chip.dataset.tier)? 'true': "false");
     });
 }
-
 function renderCards(){
-    const q = document.getElementById('searchInput').ariaValueMax.trim().toLowerCase();
-    const grid=document.getElementById('cardGrid');
-    const empty= document.getElementById('emptyState');
-    const filtered= SITUATIONS.filter(s=>{
-        const tierMatch= activeTiers.has('all')|| activeTiers.has(s.tier);
-        const text= (t(s.title) + '' + t(s.when) + ''+ t(s.ask) + '' +s.kw).toLowerCase();
-        const searchMatch = q || text.includes(q);
-        return tierMatch && searchMatch;
-    });
-    document.getElementById('resultCount').textContent= `${filtered.length} / ${SITUATIONS.length}`;
-    if (filtered.length===0){
-        grid.innerHTML= '';
-        empty.hidden='false';
-        empty.textContent=t(UI.emptyState);
-        return;
-    }
-    empty.hidden=true;
-    grid.innerHTML = filtered.map(s=>{
-        const tier= tierByKey[s.tier];
-        return`
-            <article class="card" style="--tier-color:${tier.color}; --tier-bg:${tier.bg}">
-                <div class="card-top">
-                    <h3 class="card-title">${t(s.title)}</h3>
-                    <span class="tier-tag">${t(tier.name)}</span>
-                </div>
-                <div class="card-row"><span class="k">${t(UI.cardWhenLabel)}</span>${t(s.when)}</div>
-                <div class="card-row"><span class="k">${t(UI.cardAskLabel)}</span>${t(s.ask)}</div>
-            </article>
-        `;
-    }).join('');
-    observeReveal(grid.querySelectorAll('.card'));
+  const q = document.getElementById('searchInput').value.trim().toLowerCase();
+  const grid = document.getElementById('cardGrid');
+  const empty = document.getElementById('emptyState');
+ 
+  const filtered = SITUATIONS.filter(s=>{
+    const tierMatch = activeTiers.has('all') || activeTiers.has(s.tier);
+    const text = (t(s.title) + ' ' + t(s.when) + ' ' + t(s.ask) + ' ' + s.kw).toLowerCase();
+    const searchMatch = !q || text.includes(q);
+    return tierMatch && searchMatch;
+  });
+ 
+  document.getElementById('resultCount').textContent = `${filtered.length} / ${SITUATIONS.length}`;
+ 
+  if(filtered.length === 0){
+    grid.innerHTML = '';
+    empty.hidden = false;
+    empty.textContent = t(UI.emptyState);
+    return;
+  }
+  empty.hidden = true;
+ 
+  grid.innerHTML = filtered.map(s=>{
+    const tier = tierByKey[s.tier];
+    return `
+      <article class="card" style="--tier-color:${tier.color}; --tier-bg:${tier.bg}">
+        <div class="card-top">
+          <h3 class="card-title">${t(s.title)}</h3>
+          <span class="tier-tag">${t(tier.name)}</span>
+        </div>
+        <div class="card-row"><span class="k">${t(UI.cardWhenLabel)}</span>${t(s.when)}</div>
+        <div class="card-row"><span class="k">${t(UI.cardAskLabel)}</span>${t(s.ask)}</div>
+      </article>
+    `;
+  }).join('');
+ 
+  observeReveal(grid.querySelectorAll('.card'));
 }
-
+ 
 
 function renderSupport(){
-    const grid=document.getElementById('supportGrid');
-    grid.innerHTML= renderSupport.MAP(s => `
-        <div class="support-item">
-            <h3>${t(s.title)}</h3>
-            <p>${t(s.body)}</p>
-        </div>   
-    `).join('');
-    observeReveal(grid.querySelectorAll('support-item'));
+  const grid = document.getElementById('supportGrid');
+  grid.innerHTML = SUPPORT.map(s => `
+    <div class="support-item">
+      <h3>${t(s.title)}</h3>
+      <p>${t(s.body)}</p>
+    </div>
+  `).join('');
+  observeReveal(grid.querySelectorAll('.support-item'));
 }
+ 
 
 function renderStory(){
-    const wrap= document.getElementById('storyTimeline');
-    wrap.innerHTML=STORY.map(s=>`\
-        <div class="support-item">
-            <h3>${t(s.title)}</h3>
-            <p>${t(s.body)}</p>
-        </div>          
-    `).join('');
-    observeReveal(wrap.querySelectorAll('.timeline-item'));
-    observeReveal([wrap])
+  const wrap = document.getElementById('storyTimeline');
+  wrap.innerHTML = STORY.map(s => `
+    <div class="timeline-item">
+      <div class="timeline-date">${t(s.date)}</div>
+      <div>
+        <h3 class="timeline-title">${t(s.title)}</h3>
+        <p class="timeline-body">${t(s.body)}</p>
+      </div>
+    </div>
+  `).join('');
+  observeReveal(wrap.querySelectorAll('.timeline-item'));
+  observeReveal([wrap]);
 }
-
+ 
 let revealObserver;
 function observeReveal(nodes){
-    if(!revealObserver){
-        revealObserver = new IntersectionObserver((entries) =>{
-            entries.forEach(entry =>{
-                if(entry.isIntersecting){
-                    entry.target.classList.add('in-view');
-                    revealObserver.unobserve(entry,target);
-                }
-            });
-        }, {threshold: 0.15});
-    }
-    nodes.forEach(node => revealObserver.observe(node));
+  if(!revealObserver){
+    revealObserver = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          entry.target.classList.add('in-view');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold:0.15 });
+  }
+  nodes.forEach(node => revealObserver.observe(node));
 }
 
 function initStickyDirectory(){
-    const bar= document.querySelector('directory');
-    const sentinel = document.createElement('div');
-    bar.parentNode.insertBefore(sentinel,bar);
-    const io = new IntersectionObserver(([entry]) =>{
-        bar.classList.toggle('is-stuck', !entry.isIntersecting);
-    }, {threshold:1})
-    io.observe(sentinel);
+  const bar = document.querySelector('.directory');
+  const sentinel = document.createElement('div');
+  bar.parentNode.insertBefore(sentinel, bar);
+  const io = new IntersectionObserver(([entry])=>{
+    bar.classList.toggle('is-stuck', !entry.isIntersecting);
+  }, { threshold:1 });
+  io.observe(sentinel);
 }
-
+ 
 function renderAll(){
-    renderStaticText();
-    renderLangToggle();
-    renderSignpost();
-    renderChips();
-    renderCards();
-    renderSupport();
-    renderStory()
+  renderStaticText();
+  renderLangToggle();
+  renderSignpost();
+  renderChips();
+  renderCards();
+  renderSupport();
+  renderStory();
 }
-
+ 
 renderAll();
 initStickyDirectory();
-document.getElementById('searchInput').addEventListener('input', renderCards)
+document.getElementById('searchInput').addEventListener('input', renderCards);
