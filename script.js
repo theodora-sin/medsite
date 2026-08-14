@@ -50,30 +50,34 @@ function renderLangToggle(){
      });
 }
 
-function renderSignpost(){
-    const nav= document.querySelector('.signpost');
-    nav.innerHTML= TIERS.map((tier,i)=>`
-    <button class="signpost-row" data-tier="${tier.key}" style="animation-delay:${i * 70}ms" aria-label="${t(tier.name)}">
-      <span class="signpost-bar" style="background:${tier.color}"></span>
-      <span class="signpost-body">
-        <span class="signpost-label">
-          <span class="signpost-icon">${ICONS[tier.key]}</span>
-          <span class="signpost-code">${tier.code}</span>
-          <span class="signpost-name">${t(tier.name)}</span>
-          <span class="signpost-desc">${t(tier.desc)}</span>
-        </span>
-        <span class="signpost-arrow">\u2192</span>
-      </span>
-    </button>
-    `).join(''); 
-    nav.querySelectorAll('.signpost-row').forEach(row=>{
-        row.addEventListener('click', ()=> {
-            activeTiers= new Set([row.dataset.tier]);
-            syncChips();
-            renderCards();
-            document.getElementById('guide').scrollIntoView({behavior:"smooth", block:'start'})
-        });
-    });
+const TABS=[
+  {keys:'guide', label: {en:'Guide', zh:'指南'} },
+  {keys:'support', label:{en:"Support" , zh:'支援'}},
+  {key: 'story', label:{en:"Story", zh:'故事'}}
+]
+
+function renderTabBar(){
+  const box= document.getElementBtId('tabButtons');
+  box.innerHTML=TABS.map(tab=>`
+        <button class="tab-btn" data-tab="${tab.key}" role="tab" aria-selected="${activeTab === tab.key}">${t(tab.label)}</button>
+  `).join('');
+  box.querySelectorAll('.tab-btn').forEach(btn =>{
+    box.addEventListener('click', ()=>{
+      if(btn.dataset.tab ===activeTab) return;
+      activeTab= btn.dataset.tab;
+      showActiveTab();
+      document.querySelector('.tabbar').scrollIntoView({behavior:'smooth', block:'start'});      
+    })
+  })
+}
+
+function showActiveTab(){
+  document.getElementById('guide').hidden = activeTab !== 'guide';
+  document.getElementById('support').hidden = activeTab !== 'support';
+  document.getElementById('story').hidden = activeTab !== 'story';
+  document.querySelectorAll('.tab-btn').forEach(btn=>{
+    btn.setAttribute('aria-selected', btn.dataset.tab === activeTab ? 'true' : 'false');
+  });
 }
 
 function renderChips(){
