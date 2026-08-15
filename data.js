@@ -20,7 +20,7 @@ const UI = {
         zh:""
     },
     searchPlaceholder:{
-        en:"Search a symptom or situation\u00A0eg. 'earache', 'chest pain'",
+        en:"Search a symptom or situation, e.g. 'earache', 'chest pain'",
         zh:"搜尋症狀或情況…例如「耳痛」、「胸痛」"
     },
     chipAll:{
@@ -56,11 +56,11 @@ const UI = {
         zh:'尋找你的情況'
     },
     section1Note:{
-        en:"Filter by care setting or search a symptom. Each entry shows when that route fits, what to expect and what you allow to ask",
+        en:"Filter by care setting or search a symptom. Each entry shows when that route fits, what to expect, and what you're allowed to ask.",
         zh:"按求診途徑篩選，或搜尋症狀。每個項目都會說明何時適用、會發生什麼事，以及你可以提出的要求。"
     },
     emptyState:{
-        en:"No matches. Try a different word or clear the filter\u00A0If you unsure what to do, NHS 111 online will triagge you to right place.",
+        en:"No matches. Try a different word or clear the filter. If you're unsure what to do, NHS 111 online will triage you to the right place.",
         zh:"沒有符合的結果。試試其他字詞，或清除篩選——如果你不確定應該點做，NHS 111網上分流服務隨時可以幫到你。"
     },
     cardWhenLabel:{
@@ -76,7 +76,7 @@ const UI = {
         zh:'你可以提出的支援' 
     },    
     section2Note:{
-        en:"Care isn't only happen in the appointment.\u00A0These are requests and services that exist across the system, most people just aren't told . ",
+        en:"Care isn't only about what happens in an appointment. These are requests and services that exist across the system \u2014 most people just aren't told about them.",
         zh:"醫療支援不只限於診症室內發生的事。以下是整個醫療系統中一直存在的服務與要求——只是大部分人並不知道。"
     },
     section3Title:{
@@ -88,7 +88,7 @@ const UI = {
         zh:"這個指南的出現，源於我親身經歷過的事",
     },
     footerText:{
-        en:"<strong>About this site:\u00A0</strong> This is built from personal experience navigating NHS care in the UK.\u00A0 It meant to help you recognise a situation and find the right place faster.\u00A0 It is not medical advice, a diagnosis or a substitute for a clinician who can examine you.\u00A0 Service details (opening hours, exact age ranges, what a pharmacy can treat) can change over time and vary slightly across England, Scotland, Wales and Northern Ireland.\u00A0 Always confirm specifies with NHS 111, your GP practice or nhs.uk. If you are in immediate danger, please call 999",
+        en:"<strong>About this site:</strong> This is built from personal experience navigating NHS care in the UK. It's meant to help you recognise a situation and find the right place faster. It is not medical advice, a diagnosis, or a substitute for a clinician who can examine you. Service details (opening hours, exact age ranges, what a pharmacy can treat) can change over time and vary slightly across England, Scotland, Wales and Northern Ireland. Always confirm specifics with NHS 111, your GP practice, or nhs.uk. If you are in immediate danger, please call 999.",
         zh:'<strong>關於這個網站：</strong>這個網站根據自己在英國求診的親身經歷建立了，希望幫助你更快辨認情況、找到合適的求診途徑——本網站並非醫療建議、診斷，亦不能取代能夠親自為你檢查的醫護人員。各項服務細節（開放時間、確實年齡範圍、藥房可治療的病症等）會隨時間改變，英格蘭、蘇格蘭、威爾斯及北愛爾蘭之間亦略有不同——請以 NHS 111、你的家庭醫生診所或 nhs.uk 的最新資料為準。如有即時危險，請致電 999。'
 
     },
@@ -320,4 +320,5 @@ const STORY = [
   { date:{en:'[Year]', zh:'【年份】'}, title:{en:'[What happened]', zh:'【發生了什麼事】'}, body:{en:'[Describe the turning point \u2014 a visit, a diagnosis, a request you made or wish you had made.]', zh:'【描述轉捩點——一次求診、一個診斷，或你曾經／應該提出的要求。】'} },
   { date:{en:'[Year]', zh:'【年份】'}, title:{en:'[What happened]', zh:'【發生了什麼事】'}, body:{en:'[Describe how things were resolved, or where things stand now, and what support helped most.]', zh:'【描述事情最終如何解決，或目前的狀況，以及哪些支援對你幫助最大。】'} },
 ];
+
 
