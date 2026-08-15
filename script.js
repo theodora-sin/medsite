@@ -1,8 +1,55 @@
 let currentLang = localStorage.getItem('medsite_lang') || 'en';
 let activeTiers = new Set(['all']);
 let activeTab = localStorage.getItem('medsite_tab') || 'guide';
+let activeTab = parseInt(localStorage.getItem('medsite_zoom'),10);
+let zoomStep= parseInt(localStorage.getItem('medsite_zoom'),10);
+if(isnaN(zoomStep))zoomStep = 0;
+const ZOOM_MIN = -2;
+const ZOOM_Max = 4;
+let savedIds = new Set(JSON.parse(localStorage.getItem('medsite_saved') || '[]'));
+let showSavedOnly = false;
+let userCoords=null;
 const tierByKey = Object.fromEntries(TIERS.map(t => [t.key, t]));
- 
+
+const STAR_ICON = '<svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"><path d="M12 3.5l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.1-5.4 3.1 1.3-6-4.6-4.1 6.1-.6z"/></svg>';
+const PIN_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s7-6.2 7-11.5a7 7 0 0 0-14 0C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.3"/></svg>';
+
+const NEARBY_QUERY ={
+  pharmacy:'Pharmacy',
+  gp:'GP surgery',
+  utc: 'Urgent treatment center',
+  ae: 'A&E hospital emergency department',
+}
+
+function saveSavedIds(){
+  localStorage.setItem('medsite_saved', JSON.stringify([...savedIds]));
+}
+
+function locateAndOpen(tierKey){
+  const query = NEARBY_QUERY[tierKey] || tierKey;
+  const openMaps = (lat, lng) => {
+    const url = lat != null
+      ? `https://www.google.com/maps/search/${encodeURIComponent(query)}/@${lat},${lng},14z`
+      : `https://www.google.com/maps/search/${encodeURIComponent(query)}`;    
+      window.open(url,'_blank','noopener')
+    };
+  if(userCoords){
+    openMaps(userCoords.lat, userCoords.lng);
+    return;
+  }
+  if(!navigator.geolocation){
+    openMaps(null,null);
+    return;
+  }
+  navigator.geolocation.getCurrentPosition(
+    pos=>{
+      userCoords = {lat: pos.coords.latitude, lng:pos.coords.longitude};
+      openMaps(userCoords.lat, userCoords.lng);
+    },
+    () =>openMaps(null, null)
+  );
+}
+
 function t(field){
   if(field && typeof field === 'object') return field[currentLang];
   return field;
@@ -48,6 +95,31 @@ function renderLangToggle(){
       setTimeout(()=> document.body.classList.remove('lang-fading'), 320);
     });
   });
+}
+
+function applyZoom(){
+  const isMobile = window.matchMedia('(max-width:640px)').matches;
+  const base = isMobile ? 16.5:19;
+  document.documentElement.style.fontSize=(base+zoomStep)+ 'px';
+  localStorage.setItem('medsite_zoom', zoomStep);
+}
+
+function renderZoomToggle(){
+  const box =document.getElementById('zoomToggle');
+  const pct= 100 + Math.round((zoomStep/19)*100);
+    box.innerHTML = `
+    <button data-zoom="out" aria-label="Decrease text size" ${zoomStep <= ZOOM_MIN ? 'disabled' : ''}>\u2212</button>
+    <span class="zoom-label">${pct}%</span>
+    <button data-zoom="in" aria-label="Increase text size" ${zoomStep >= ZOOM_MAX ? 'disabled' : ''}>+</button>
+  `;
+  box.querySelectorAll('button').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      if(btn.dataset.zoom === 'in' && zoomStep < ZOOM_MAX) zoomStep +=1;
+      if(btn.dataset.zoom === 'out' && zoomStep > ZOOM_MIN ) zoomStep -=1;
+      applyZoom();
+      renderZoomToggle();
+    })
+  })
 }
  
 const TABS = [
@@ -152,18 +224,40 @@ function renderCards(){
  
   grid.innerHTML = filtered.map(s=>{
     const tier = tierByKey[s.tier];
+    const isSaved = savedIds.has(s.id);
+    const nearBtn = NEARBY_QUERY[s.tier]
+      ? `<button class="locate-btn" data-tier="${s.tier}">${PIN_ICON}${t(UI.findNearest)} ${t(tier.name)}</button>`
+      : '';
     return `
       <article class="card" style="--tier-color:${tier.color}; --tier-bg:${tier.bg}">
         <div class="card-top">
-          <h3 class="card-title">${t(s.title)}</h3>
+          <div class="card-title-row">
+            <button class="save-btn" data-id="${s.id}" aria-pressed="${isSaved}" aria-label="${t(UI.saveBtnLabel)}">${STAR_ICON}</button>
+            <h3 class="card-title">${t(s.title)}</h3>
+          </div>
           <span class="tier-tag">${t(tier.name)}</span>
         </div>
         <div class="card-row"><span class="k">${t(UI.cardWhenLabel)}</span>${t(s.when)}</div>
         <div class="card-row"><span class="k">${t(UI.cardAskLabel)}</span>${t(s.ask)}</div>
+        ${nearBtn}
       </article>
     `;
   }).join('');
- 
+
+  grid.querySelectorAll('.save-btn').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      const id= btn.dataset.id;
+      if(savedIds.has(id)) savedIds.delete(id); else savedIds.add(id);
+      saveSavedIds();
+      btn.setAttribute('aria-pressed', savedIds.has(id));
+      const savedChip = document.getElementById('savedChip');
+      if(savedChip) savedChip.innerHTML = `<span class="chip-star-icon">${STAR_ICON}</span>${t(UI.savedChip)} (${savedIds.size})`;
+      if(showSavedOnly && !savedIds.has(id)) renderCards();      
+    });
+  });
+  grid.querySelectorAll('.locate-btn').forEach(btn=>{
+    btn.addEventListener('click',()=> locateAndOpen(btn.dataset.tier));
+  });
   observeReveal(grid.querySelectorAll('.card'));
 }
  
@@ -223,6 +317,7 @@ function initScrollTop(){
 function renderAll(){
   renderStaticText();
   renderLangToggle();
+  renderZoomToggle();
   renderTabBar();
   renderChips();
   renderCards();
@@ -231,7 +326,9 @@ function renderAll(){
   showActiveTab();
 }
  
+applyZoom();
 renderAll();
 initScrollTop();
 document.getElementById('searchInput').addEventListener('input', renderCards);
 window.addEventListener('resize', moveTabIndicator);
+window.addEventListener('resize',applyZoom);
