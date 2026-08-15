@@ -336,3 +336,4 @@ initScrollTop();
 document.getElementById('searchInput').addEventListener('input', renderCards);
 window.addEventListener('resize', moveTabIndicator);
 window.addEventListener('resize',applyZoom);
+
