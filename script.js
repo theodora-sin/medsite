@@ -184,6 +184,7 @@ function renderChips(){
   `;
   row.innerHTML = allChip + savedChip + tierChips;
   row.querySelectorAll('.chip').forEach(chip=>{
+    chip.addEventListener('click', ()=>{
       const tier = chip.dataset.tier;
       if(tier === 'all'){
         activeTiers = new Set(['all']);
