@@ -313,7 +313,8 @@ h1.title{
 .chip.tier-utc[aria-pressed="true"]{ background:var(--tier-utc); }
 .chip.tier-ae[aria-pressed="true"]{ background:var(--tier-ae); }
 .chip.tier-all[aria-pressed="true"]{ background:var(--ink); }
-.chip.chip-saved[aria-pressed="true"]{background:#B8860B; border-color:transparent;}
+.chip.chip-saved{border-color:#B8860B; color:#B8860B;}
+.chip.chip-saved[aria-pressed="true"]{background:#B8860B; border-color:transparent;color:#fff;}
 .chip-star-icon{width:14px; height:14px; display:flex;}
 .chip-star-icon svg{width:100%; height:100%;}
 .result-count{
