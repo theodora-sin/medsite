@@ -27,6 +27,30 @@ const UI = {
         en:"All",
         zh:'全部',
     },
+    chipHint:{
+      en:"Tap a category below, or search a symptom---no typing required.",
+      zh:"點擊下面的分類，或搜尋症狀——毋須打字亦可使用。"
+    },
+    savedChip:{
+      en:"saved",
+      zh:"已收藏",     
+    },
+    saveBtnLabel:{
+      en:'Saved',
+      zh:"收藏",
+    },
+    savedEmptyState:{
+      en:'Nothing saved yet. Tap the star on any card to keep it here for quick access.',
+      zh:"暫時未有已收藏項目。點擊卡片上的星號即可加入收藏，方便快速查看。"
+    },
+    findNearest:{
+      en:'Find nearest',
+      zh:"尋找附近",
+    },
+    locationNote:{
+      en:"\"Find nearest\" opens Google Maps using your device's location — your location isn't stored by this site.",
+        zh:"「尋找附近」會使用你裝置的位置資訊，在Google地圖開啟搜尋——本網站不會儲存你的位置資料。"
+    },
     section1Title:{
         en:"Find your situation",
         zh:'尋找你的情況'
