@@ -1,8 +1,7 @@
 let currentLang = localStorage.getItem('medsite_lang') || 'en';
 let activeTiers = new Set(['all']);
 let activeTab = localStorage.getItem('medsite_tab') || 'guide';
-let activeTab = parseInt(localStorage.getItem('medsite_zoom'),10);
-let zoomStep= parseInt(localStorage.getItem('medsite_zoom'),10);
+let zoomStep = parseInt(localStorage.getItem('medsite_zoom'), 10);
 if(isnaN(zoomStep))zoomStep = 0;
 const ZOOM_MIN = -2;
 const ZOOM_Max = 4;
