@@ -177,9 +177,13 @@ function renderChips(){
       <span class="chip-icon">${ICONS[tier.key]}</span>${t(tier.name)}
     </button>
   `).join('');
+  const savedChip = `
+    <button class="chip chip-saved" id="savedChip" aria-pressed="${showSavedOnly}">
+      <span class="chip-star-icon">${STAR_ICON}</span>${t(UI.savedChip)} (${savedIds.size})
+    </button>
+  `;
   row.innerHTML = allChip + savedChip + tierChips;
   row.querySelectorAll('.chip').forEach(chip=>{
-    chip.addEventListener('click', ()=>{
       const tier = chip.dataset.tier;
       if(tier === 'all'){
         activeTiers = new Set(['all']);
