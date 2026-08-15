@@ -177,7 +177,7 @@ function renderChips(){
       <span class="chip-icon">${ICONS[tier.key]}</span>${t(tier.name)}
     </button>
   `).join('');
-  row.innerHTML = allChip + tierChips;
+  row.innerHTML = allChip + savedChip + tierChips;
   row.querySelectorAll('.chip').forEach(chip=>{
     chip.addEventListener('click', ()=>{
       const tier = chip.dataset.tier;
