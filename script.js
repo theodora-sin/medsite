@@ -325,7 +325,7 @@ const filtered = SITUATIONS.filter(s=>{
   grid.querySelectorAll('.locate-btn').forEach(btn=>{
     btn.addEventListener('click',()=> locateAndOpen(btn.dataset.tier));
   });
-  grid.querySelectorAll('.share-btn'),forEach(btn=>{
+  grid.querySelectorAll('.share-btn').forEach(btn=>{
     btn.addEventListener('click',()=> shareSituation(btn.dataset.id));
   })
   observeReveal(grid.querySelectorAll('.card'));
