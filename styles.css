@@ -569,7 +569,7 @@ section[role="tabpanel"]{ padding:var(--sp-1) 0 var(--sp-6) 0; }
 }
 
 footer{ padding:var(--sp-4) 0 var(--sp-5) 0; border-top:1px solid var(--line); }
-footer p{ font-size:var(--fs-sm); color:var(--ink-soft); max-width:80ch; margin:0 0 var(--sp-2) 0; }
+footer p{ font-size:var(--fs-sm); color:var(--ink-soft); max-width:100%; margin:0 0 var(--sp-2) 0; }
 .legal-link a{
   font-weight:var(--fw-bold);
   color:var(--tier-gp);
