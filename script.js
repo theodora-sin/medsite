@@ -213,12 +213,13 @@ function renderCards(){
   const grid = document.getElementById('cardGrid');
   const empty = document.getElementById('emptyState');
  
-  const filtered = SITUATIONS.filter(s=>{
+const filtered = SITUATIONS.filter(s=>{
     const tierMatch = activeTiers.has('all') || activeTiers.has(s.tier);
+    const savedMatch = !showSavedOnly || savedIds.has(s.id);
     const text = (t(s.title) + ' ' + t(s.when) + ' ' + t(s.ask) + ' ' + s.kw).toLowerCase();
     const searchMatch = !q || text.includes(q);
-    return tierMatch && searchMatch;
-  });
+    return tierMatch && savedMatch && searchMatch;
+});
  
   document.getElementById('resultCount').textContent = `${filtered.length} / ${SITUATIONS.length}`;
  
