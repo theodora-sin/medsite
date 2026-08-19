@@ -189,6 +189,8 @@ function renderChips(){
   row.innerHTML = allChip + savedChip + tierChips;
   row.querySelectorAll('.chip:not(.chip-saved)').forEach(chip=>{
     chip.addEventListener('click', ()=>{
+      showSavedOnly = false;
+      document.getElementById('savedChip').setAttribute('aria-pressed','false');
       const tier = chip.dataset.tier;
       if(tier === 'all'){
         activeTiers = new Set(['all']);
@@ -204,6 +206,10 @@ function renderChips(){
   document.getElementById('savedChip').addEventListener('click', ()=>{
     showSavedOnly = !showSavedOnly;
     document.getElementById('savedChip').setAttribute('aria-pressed', showSavedOnly);
+    if(showSavedOnly){
+      activeTiers= new Set(['all']);
+      syncChips();
+    }
     renderCards();
   });
 }
