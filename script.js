@@ -187,7 +187,7 @@ function renderChips(){
     </button>
   `;
   row.innerHTML = allChip + savedChip + tierChips;
-  row.querySelectorAll('.chip').forEach(chip=>{
+  row.querySelectorAll('.chip:not(.chip-saved)').forEach(chip=>{
     chip.addEventListener('click', ()=>{
       const tier = chip.dataset.tier;
       if(tier === 'all'){
@@ -200,6 +200,11 @@ function renderChips(){
       syncChips();
       renderCards();
     });
+  });
+  document.getElementById('savedChip').addEventListener('click', ()=>{
+    showSavedOnly = !showSavedOnly;
+    document.getElementById('savedChip').setAttribute('aria-pressed', showSavedOnly);
+    renderCards();
   });
 }
 function syncChips(){
