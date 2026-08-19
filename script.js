@@ -15,6 +15,40 @@ const tierByKey = Object.fromEntries(TIERS.map(t => [t.key, t]));
 
 const STAR_ICON = '<svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"><path d="M12 3.5l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.1-5.4 3.1 1.3-6-4.6-4.1 6.1-.6z"/></svg>';
 const PIN_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s7-6.2 7-11.5a7 7 0 0 0-14 0C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.3"/></svg>';
+const SHARE_ICON= '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3v12M8 7l4-4 4 4"/><path d="M4 13v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-6"/></svg>';
+
+let toastTimer;
+function showToast(msg){
+  let toast=document.getElementById('toast');
+  if(!toast){
+    toast=document.createElement('div');
+    toast.id='toast';
+    toast.className= 'toast';
+    document.body.appendChild(toast);
+  }
+  toast.textContent=msg;
+  toast.classList.add('visible');
+  clearTimeout(toastTimer);
+  toastTimer = setTimerout(()=> toast.classList.remove('visible'),2200);
+}
+function shareSituation(id){
+  const s= SITUATIONS.find(x => x.id === id);
+  if(!s) return;
+  const tier= tierByKey[s.tier];
+  const pageUrl = location.href.split('#')[0].split('?')[0];
+  const text = `${t(s.title)} (${t(tier.name)})\n\n${t(UI.cardWhenLabel)}: ${t(s.when)}\n${t(UI.cardAskLabel)}: ${t(s.ask)}\n\n${pageUrl}`;
+  if(navigator.share){
+    navigator.share({title: t(s.title), text}).catch(()=>{});
+    return;
+  }
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text)
+      .then(()=> showToast(t(UI.shareCopiedMsg)))
+      .catch(()=> window.prompt(t(UI.shareCopiedMsg), text));
+    return;
+  }
+  window.prompt(t(UI.shareCopiedMsg), text);
+}
 
 const NEARBY_QUERY ={
   pharmacy:'Pharmacy',
@@ -75,6 +109,7 @@ function renderStaticText(){
   document.getElementById('heroByline').textContent = t(UI.heroByline);
   document.getElementById('searchInput').placeholder = t(UI.searchPlaceholder);
   document.getElementById('chipHint').textContent = t(UI.chipHint);
+  document.getElementById('locationNote').textContent=t(UI.locationNote);
   document.getElementById('section1Note').textContent = t(UI.section1Note);
   document.getElementById('section2Note').textContent = t(UI.section2Note);
   document.getElementById('storyIntro').innerHTML = t(UI.storyIntro);
@@ -263,6 +298,18 @@ const filtered = SITUATIONS.filter(s=>{
       </article>
     `;
   }).join('');
+  grid.querySelectorAll('.save-btn').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      const id=btn.dataset.id;
+      if(savedIds.has(id)) savedIds.delete(id); else savedIds.add(id);
+      saveSavedIds();
+      btn.setAttribute('aria-pressed',savedIds.has(id));
+      const savedChip=document.getElementById('savedChip');
+      if(savedChip)savedChip.innerHTML = `<span class="chip-star-icon">${STAR_ICON}</span>${t(UI.savedChip)} (${savedIds.size})`;
+      if(showSavedOnly && !savedIds.has(id)) 
+        renderCards();
+    });
+  });
 
   grid.querySelectorAll('.save-btn').forEach(btn=>{
     btn.addEventListener('click',()=>{
@@ -278,6 +325,9 @@ const filtered = SITUATIONS.filter(s=>{
   grid.querySelectorAll('.locate-btn').forEach(btn=>{
     btn.addEventListener('click',()=> locateAndOpen(btn.dataset.tier));
   });
+  grid.querySelectorAll('.share-btn'),forEach(btn=>{
+    btn.addEventListener('click',()=> shareSituation(btn.dataset.id));
+  })
   observeReveal(grid.querySelectorAll('.card'));
 }
  
@@ -352,4 +402,3 @@ initScrollTop();
 document.getElementById('searchInput').addEventListener('input', renderCards);
 window.addEventListener('resize', moveTabIndicator);
 window.addEventListener('resize',applyZoom);
-
