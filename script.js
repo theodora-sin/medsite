@@ -6,6 +6,9 @@ if(isNaN(zoomStep)) zoomStep = 0;
 const ZOOM_MIN = -2;
 const ZOOM_MAX = 4;
 let savedIds = new Set(JSON.parse(localStorage.getItem('medsite_saved') || '[]'));
+const validSituationIds = new Set(SITUATIONS.map(s => s.id));
+savedIds = new Set([...savedIds].filter(id => validSituationIds.has(id)));
+localStorage.setItem('medsite_saved', JSON.stringify([...savedIds]));
 let showSavedOnly = false;
 let userCoords=null;
 const tierByKey = Object.fromEntries(TIERS.map(t => [t.key, t]));
@@ -76,6 +79,7 @@ function renderStaticText(){
   document.getElementById('section2Note').textContent = t(UI.section2Note);
   document.getElementById('storyIntro').innerHTML = t(UI.storyIntro);
   document.getElementById('footerText').innerHTML = t(UI.footerText);
+  document.getElementById('legalLink').textContent =t(UI.legalLinkText);
 }
  
 function renderLangToggle(){
