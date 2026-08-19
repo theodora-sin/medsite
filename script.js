@@ -29,7 +29,7 @@ function showToast(msg){
   toast.textContent=msg;
   toast.classList.add('visible');
   clearTimeout(toastTimer);
-  toastTimer = setTimerout(()=> toast.classList.remove('visible'),2200);
+  toastTimer = setTimeout(()=> toast.classList.remove('visible'),2200);
 }
 function shareSituation(id){
   const s= SITUATIONS.find(x => x.id === id);
@@ -308,18 +308,6 @@ const filtered = SITUATIONS.filter(s=>{
       if(savedChip)savedChip.innerHTML = `<span class="chip-star-icon">${STAR_ICON}</span>${t(UI.savedChip)} (${savedIds.size})`;
       if(showSavedOnly && !savedIds.has(id)) 
         renderCards();
-    });
-  });
-
-  grid.querySelectorAll('.save-btn').forEach(btn=>{
-    btn.addEventListener('click',()=>{
-      const id= btn.dataset.id;
-      if(savedIds.has(id)) savedIds.delete(id); else savedIds.add(id);
-      saveSavedIds();
-      btn.setAttribute('aria-pressed', savedIds.has(id));
-      const savedChip = document.getElementById('savedChip');
-      if(savedChip) savedChip.innerHTML = `<span class="chip-star-icon">${STAR_ICON}</span>${t(UI.savedChip)} (${savedIds.size})`;
-      if(showSavedOnly && !savedIds.has(id)) renderCards();      
     });
   });
   grid.querySelectorAll('.locate-btn').forEach(btn=>{
