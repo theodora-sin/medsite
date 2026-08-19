@@ -115,7 +115,7 @@ const TIERS=[
     desc:{en:'Life-threatening \u2014 chest pain, stroke signs, severe bleeding', zh:'有生命危險——胸痛、中風徵狀、大量出血'} },
 ];
  
-/*SITUATIONS — searchable/filterable guide entries.*/
+/*SITUATIONS */
 const SITUATIONS = [
   { tier:'self', title:{en:'Common cold or mild cough', zh:'普通感冒或輕微咳嗽'},
     when:{en:'Runny nose, sore throat, mild cough, no fever over 38\u00b0C, you\u2019re otherwise well.', zh:'流鼻水、喉嚨痛、輕微咳嗽，體溫不超過38°C，其他方面狀況良好。'},
@@ -298,7 +298,7 @@ const SITUATIONS = [
     kw:'mental health crisis suicidal emergency danger 精神健康危機' },
 ];
  
-/*SUPPORT — things you can request across the system. */
+/*SUPPORT */
 const SUPPORT = [
   { title:{en:'NHS App', zh:'NHS App'}, body:{en:'Order repeat prescriptions, view your record and test results, and book some GP appointments without calling.', zh:'透過App續配藥物、查看醫療記錄及化驗結果，並可預約部分家庭醫生門診，毋須致電。'} },
   { title:{en:'PALS', zh:'PALS（病人諮詢及聯絡服務）'}, body:{en:'The Patient Advice and Liaison Service in every hospital \u2014 ask them for help resolving a concern or finding your way between departments.', zh:'每間醫院都設有的病人諮詢及聯絡服務——可請求協助解決疑慮，或在各部門之間找到方向。'} },
@@ -314,11 +314,53 @@ const SUPPORT = [
   { title:{en:'111 online', zh:'111 網上服務'}, body:{en:'Faster than the phone line for most non-emergencies, and available any time \u2014 good first stop when you\u2019re unsure.', zh:'對大部分非緊急情況來說比打電話快，全天候提供服務——當你不確定時，是一個好的起點。'} },
 ];
  
-/* STORY — replace with your own timeline entries, in both languages.*/
+/* STORY */
 const STORY = [
   { date:{en:'[Year]', zh:'【年份】'}, title:{en:'[What happened]', zh:'【發生了什麼事】'}, body:{en:'[Describe the situation \u2014 what symptoms you had, what you did first, and what you wish you\u2019d known.]', zh:'【描述當時的情況——你有什麼症狀、最初做了什麼，以及你希望當時已經知道的事。】'} },
   { date:{en:'[Year]', zh:'【年份】'}, title:{en:'[What happened]', zh:'【發生了什麼事】'}, body:{en:'[Describe the turning point \u2014 a visit, a diagnosis, a request you made or wish you had made.]', zh:'【描述轉捩點——一次求診、一個診斷，或你曾經／應該提出的要求。】'} },
   { date:{en:'[Year]', zh:'【年份】'}, title:{en:'[What happened]', zh:'【發生了什麼事】'}, body:{en:'[Describe how things were resolved, or where things stand now, and what support helped most.]', zh:'【描述事情最終如何解決，或目前的狀況，以及哪些支援對你幫助最大。】'} },
 ];
 
+/* Legal*/
+const LEGAL = {
+  pageTitle: { en:'Legal & Privacy', zh:'法律及私隱聲明' },
+  backLink: { en:'\u2190 Back to guide', zh:'\u2190 返回指南' },
+  sections: [
+    {
+      heading: { en:'Not medical advice', zh:'並非醫療建議' },
+      body: {
+        en:'This site is a general navigation guide based on personal experience and publicly available NHS information. It is not medical advice, a diagnosis, or a substitute for assessment by a qualified clinician. If you are in immediate danger, always call 999 or go to A&E.',
+        zh:'本網站是根據個人經歷及公開的NHS資訊編寫的一般求診指引，並非醫療建議、診斷，亦不能取代合資格醫護人員的評估。如有即時危險，請致電999或前往急症室。'
+      }
+    },
+    {
+      heading: { en:'Accuracy and currency of information', zh:'資訊準確性及時效性' },
+      body: {
+        en:'Service details such as opening hours, eligible age ranges, and what a pharmacy can treat change over time and vary slightly across England, Scotland, Wales and Northern Ireland. Always confirm current details with NHS 111, your GP practice, or nhs.uk before relying on information here.',
+        zh:'服務細節（例如開放時間、合資格年齡範圍、藥房可治療的病症）會隨時間改變，並在英格蘭、蘇格蘭、威爾斯及北愛爾蘭之間略有不同。使用本網站資訊前，請以NHS 111、你的家庭醫生診所或nhs.uk的最新資料為準。'
+      }
+    },
+    {
+      heading: { en:'Data and your privacy', zh:'資料及你的私隱' },
+      body: {
+        en:'This site has no server-side database and does not collect or transmit personal data to us. Your language choice, active tab, text-size preference, and any bookmarked situations are stored only in your own browser (local storage) and never leave your device. The "Find nearest" feature uses your browser\u2019s location permission and sends coordinates directly to Google Maps when you tap it \u2014 this is between you and Google, and is not seen or stored by this site.',
+        zh:'本網站沒有伺服器端資料庫，亦不會收集或傳送你的個人資料。你的語言選擇、目前分頁、文字大小偏好，以及任何已收藏的項目，只會儲存喺你自己嘅瀏覽器（本機儲存），並不會離開你的裝置。「尋找附近」功能會使用你瀏覽器的位置權限，並喺你按下按鈕時直接將座標傳送至Google地圖——這是你與Google之間的互動，本網站不會查看或儲存相關資料。'
+      }
+    },
+    {
+      heading: { en:'Accessibility', zh:'無障礙聲明' },
+      body: {
+        en:'This site aims to meet WCAG 2.1 AA guidelines: sufficient color contrast, visible keyboard focus states, semantic landmarks, and respect for reduced-motion preferences. Text size can be adjusted using the \u2212/+ control in the navigation bar. If you find an accessibility barrier, feedback is welcome via the contact details on the guide page.',
+        zh:'本網站力求符合WCAG 2.1 AA無障礙指引：足夠的色彩對比度、清晰可見的鍵盤聚焦狀態、語義化的頁面結構，並尊重「減少動畫」的系統設定。你可以使用導覽列中的「\u2212/+」按鈕調整文字大小。如發現任何無障礙使用上的問題，歡迎透過指南頁面上的聯絡方式提供意見。'
+      }
+    },
+    {
+      heading: { en:'External links', zh:'外部連結' },
+      body: {
+        en:'This site links to external services including Google Maps, NHS 111 online, and Samaritans. We are not responsible for the content, availability, or privacy practices of external sites.',
+        zh:'本網站連結至外部服務，包括Google地圖、NHS 111網上服務及Samaritans。本網站對外部網站的內容、可用性或私隱政策概不負責。'
+      }
+    }
+  ]
+};
 
