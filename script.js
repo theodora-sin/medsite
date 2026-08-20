@@ -304,6 +304,11 @@ const filtered = SITUATIONS.filter(s=>{
       if(savedIds.has(id)) savedIds.delete(id); else savedIds.add(id);
       saveSavedIds();
       btn.setAttribute('aria-pressed',savedIds.has(id));
+      if(nowSaved){
+        showToast(t(UI.savedConfirmMsg));
+        btn.classList.add('bounce');
+        setTimeout(()=> btn.classList.remove('bounce'), 350);
+      }
       const savedChip=document.getElementById('savedChip');
       if(savedChip)savedChip.innerHTML = `<span class="chip-star-icon">${STAR_ICON}</span>${t(UI.savedChip)} (${savedIds.size})`;
       if(showSavedOnly && !savedIds.has(id)) 
