@@ -59,6 +59,18 @@ const UI = {
         en:"Legal & Privacy",
         zh:"法律及私隱聲明"
     },
+    contactLinkText:{
+      en:"Report an issue or leave feedback",
+      zh:"回報問題或提出意見"
+    },
+    lastReviewedLabel:{
+      en:"Last reviewed",
+      zh:"最後審核日期"
+    },
+    lastReviewedDate:{
+      en:"August 2026",
+      zh:"2026年8月"
+    },
     section1Title:{
         en:"Find your situation",
         zh:'尋找你的情況'
@@ -149,30 +161,40 @@ const SITUATIONS = [
     when:{en:'After a heavy meal, alcohol, or lying down too soon after eating \u2014 infrequent.', zh:'在大餐、飲酒或餐後太快躺下時出現，並非經常發生。'},
     ask:{en:'Antacids, smaller meals, avoid lying down straight after eating. See a GP if it happens most days.', zh:'服用制酸劑、少食多餐、避免餐後立即躺下。如果幾乎每天都發生，應見家庭醫生。'},
     kw:'heartburn indigestion reflux 胃酸倒流 消化不良' },
+  
+  { id:'self-6', tier:'self', title:{en:'Mild toothache or tooth sensitivity', zh:'輕微牙痛或牙齒敏感'},
+    when:{en:'Mild tooth pain or sensitivity to hot/cold, no swelling or fever.', zh:'輕微牙痛或對冷熱敏感，沒有腫脹或發燒。'},
+    ask:{en:'Take paracetamol or ibuprofen, avoid very hot or cold food and drink, and book a routine appointment with your NHS dentist.', zh:'服用撲熱息痛或布洛芬，避免過熱或過凍的食物及飲品，並向你的NHS牙醫預約普通門診。'},
+    kw:'toothache tooth pain sensitivity dental mild 牙痛 牙齒敏感 牙科' },
+
+  { id:'self-7', tier:'self', title:{en:'Mild illness in a baby or young child', zh:'嬰幼兒輕微不適'},
+    when:{en:'Mild cold symptoms in a baby or toddler who is able to eat or drink normally and has no high fever.', zh:'嬰兒或幼童有輕微感冒症狀，餵食正常，亦沒有高燒。'},
+    ask:{en:'Fluids, rest, and infant paracetamol if needed following the packet instructions for their age.', zh:'補充水分、休息，有需要可按包裝上按年齡建議的劑量服用嬰幼兒撲熱息痛'},
+    kw:'baby toddler mild cold fever child self care 嬰兒 幼童 輕微感冒' },
 
   { id:'pharmacy-1', tier:'pharmacy', title:{en:'Sinusitis', zh:'鼻竇炎'},
     when:{en:'Facial pain/pressure, blocked nose, lasting more than a few days \u2014 age 12+.', zh:'面部疼痛／有壓迫感、鼻塞，持續數天以上——12歲或以上人士適用。'},
-    ask:{en:'Ask for a "Pharmacy First" consultation. No booking needed \u2014 the pharmacist can supply treatment on the spot if appropriate.', zh:'要求「Pharmacy First」諮詢服務。毋須預約——藥劑師如認為合適，可即場提供治療。'},
+    ask:{en:'Ask for a "Pharmacy First" consultation. No booking needed \u2014 the pharmacist can supply treatment on the spot if appropriate.', zh:'要求藥房諮詢服務。毋須預約——藥劑師如認為合適，可即場提供治療。'},
     kw:'sinusitis sinus blocked nose facial pain pharmacy first 鼻竇炎 鼻塞' },
 
   { id:'pharmacy-2', tier:'pharmacy', title:{en:'Sore throat', zh:'喉嚨痛'},
     when:{en:'Painful swallowing, red throat, age 5+, no difficulty breathing.', zh:'吞嚥疼痛、喉嚨發紅，5歲或以上，沒有呼吸困難。'},
-    ask:{en:'Consultanting pharmacy first  walk in and ask at the counter. They\u2019ll check for signs that need onward referral.', zh:'直接到藥房要求Pharmacy First諮詢，在櫃檯查詢即可。藥劑師會檢查是否有需要轉介的徵狀。'},
+    ask:{en:'Consultanting pharmacy first  walk in and ask at the counter. They\u2019ll check for signs that need onward referral.', zh:'直接到藥房要求諮詢，在櫃檯查詢即可。藥劑師會檢查是否有需要轉介的徵狀。'},
     kw:'sore throat tonsillitis pharmacy first 喉嚨痛 扁桃腺炎' },
 
   { id:'pharmacy-3', tier:'pharmacy', title:{en:'Earache', zh:'耳痛'},
     when:{en:'Ear pain, possible mild discharge \u2014 ages 1 to 17.', zh:'耳朵疼痛，可能有輕微分泌物——適用於1至17歲。'},
-    ask:{en:'Pharmacy First consultation. Free, no appointment. They\u2019ll refer you on if it looks like it needs a GP.', zh:'Pharmacy First諮詢，免費且毋須預約。如有需要，藥劑師會轉介你去見家庭醫生。'},
+    ask:{en:'Pharmacy First consultation.No appointment required. They\u2019ll refer you on if it looks like it needs a GP.', zh:'藥房諮詢，毋須預約。如有需要，藥劑師會轉介你去見家庭醫生。'},
     kw:'earache ear infection pain pharmacy first child 耳痛 耳部感染' },
 
   { id:'pharmacy-4', tier:'pharmacy', title:{en:'Infected insect bite', zh:'受感染的昆蟲叮咬'},
     when:{en:'Redness spreading, warmth, mild swelling around a bite \u2014 age 1+.', zh:'叮咬部位紅腫擴散、發熱、輕微腫脹——1歲或以上適用。'},
-    ask:{en:'Pharmacy First consultation for possible antibiotic treatment without a GP appointment.', zh:'Pharmacy First諮詢，毋須預約家庭醫生亦可獲處方抗生素治療（如適用）。'},
+    ask:{en:'Pharmacy First consultation for possible antibiotic treatment without a GP appointment.', zh:'藥房諮詢，毋須預約家庭醫生亦可獲處方抗生素治療（如適用）。'},
     kw:'insect bite infected sting swelling pharmacy first 昆蟲叮咬 感染' },
 
   { id:'pharmacy-5', tier:'pharmacy', title:{en:'Impetigo', zh:'膿疱病'},
     when:{en:'Crusty, weeping patches of skin, usually around the nose or mouth \u2014 age 1+.', zh:'皮膚出現結痂、滲液的斑塊，通常在鼻子或嘴巴附近——1歲或以上適用。'},
-    ask:{en:'Pharmacy First consultation. Contagious \u2014 ask about hygiene steps to stop it spreading at home.', zh:'Pharmacy First諮詢。此病具傳染性——可詢問如何做好家居衛生以防止傳播。'},
+    ask:{en:'Pharmacy First consultation. Contagious \u2014 ask about hygiene steps to stop it spreading at home.', zh:'藥房諮詢。此病具傳染性——可詢問如何做好家居衛生以防止傳播。'},
     kw:'impetigo skin infection sores pharmacy first 膿疱病 皮膚感染' },
 
   { id:'pharmacy-6', tier:'pharmacy', title:{en:'Shingles', zh:'帶狀疱疹'},
@@ -182,13 +204,18 @@ const SITUATIONS = [
 
   { id:'pharmacy-7', tier:'pharmacy', title:{en:'Uncomplicated UTI (women)', zh:'單純性尿道炎（女性）'},
     when:{en:'Burning when urinating, needing to go often, no fever or back pain \u2014 women aged 16\u201364.', zh:'小便時有灼熱感、需要頻密如廁，沒有發燒或腰痛——16至64歲女性適用。'},
-    ask:{en:'Pharmacy First consultation for same-day antibiotics if appropriate, no GP visit needed.', zh:'Pharmacy First諮詢，如適用可即日獲處方抗生素，毋須見家庭醫生。'},
+    ask:{en:'Pharmacy First consultation for same-day antibiotics if appropriate, no GP visit needed.', zh:'藥房諮詢，如適用可即日獲處方抗生素，毋須見家庭醫生。'},
     kw:'uti urinary tract infection cystitis pharmacy first women 尿道炎 膀胱炎' },
 
   { id:'pharmacy-8', tier:'pharmacy', title:{en:'Medicines advice or minor ailments', zh:'藥物諮詢或輕微不適'},
     when:{en:'Unsure if a medicine is safe with others you take, or a general minor symptom.', zh:'不確定某種藥物與正在服用的其他藥物是否安全同服，或一般輕微症狀。'},
     ask:{en:'Ask the pharmacist directly \u2014 no appointment needed, and they can flag if you actually need a GP.', zh:'直接詢問藥劑師——毋須預約，如有需要他們會建議你去見家庭醫生。'},
     kw:'medicine advice interaction over the counter 藥物諮詢 ' },
+
+  { id:'pharmacy-9', tier:'pharmacy', title:{en:'Emergency contraception', zh:'事後避孕'},
+    when:{en:'You need emergency contraception (the \u2018morning after pill\u2019) after unprotected sex.', zh:'在無保護措施的性行為後，需要事後避孕「事後丸」。'},
+    ask:{en:'Most pharmacies can supply emergency contraception for free without an appointment \u2014 ask directly at the counter. It works best the sooner it\u2019s taken.', zh:'大部分藥房都可以免費提供事後避孕藥，毋須預約——直接在櫃檯查詢即可。越早服用效果越好。'},
+    kw:'emergency contraception morning after pill sexual health 事後避孕 事後丸' },
 
   { id:'gp-1', tier:'gp', title:{en:'Symptoms lasting more than 2\u20133 weeks', zh:'症狀持續超過2至3星期'},
     when:{en:'Anything that hasn\u2019t settled with self-care or a pharmacy visit.', zh:'任何自行處理或看過藥劑師後仍未好轉的症狀。'},
@@ -197,7 +224,7 @@ const SITUATIONS = [
 
   { id:'gp-2', tier:'gp', title:{en:'Managing a long-term condition', zh:'長期病患管理'},
     when:{en:'Diabetes, asthma, blood pressure reviews, medication changes.', zh:'糖尿病、哮喘、血壓覆診，或需要調整藥物。'},
-    ask:{en:'Ask for a structured review appointment \u2014 these are usually longer than a standard slot.', zh:'要求安排結構性覆診——這類預約時段通常比普通門診長。'},
+    ask:{en:'Ask for a regular review appointment \u2014 these are usually longer than a standard slot.', zh:'要求安排結構性覆診——這類預約時段通常比普通門診長。'},
     kw:'diabetes asthma blood pressure long term condition review 糖尿病 哮喘 血壓 長期病' },
 
   { id:'gp-3', tier:'gp', title:{en:'Unexplained weight loss or fatigue', zh:'不明原因體重下降或疲勞'},
@@ -207,21 +234,31 @@ const SITUATIONS = [
 
   { id:'gp-4', tier:'gp', title:{en:'A mole or skin change', zh:'痣或皮膚變化'},
     when:{en:'New mole, or an existing one changing shape, colour, or size.', zh:'新長出的痣，或原有的痣在形狀、顏色或大小上有變化。'},
-    ask:{en:'Ask specifically to be examined and, if needed, referred under the 2-week-wait suspected cancer pathway.', zh:'明確要求檢查，如有需要，可要求透過「兩星期內轉介」的懷疑癌症快速通道轉介。'},
+    ask:{en:'Ask specifically to be examined and, if needed, ask GP to refer to the 2-week-wait suspected cancer pathway.', zh:'明確要求檢查，如有需要，可要求透過「兩星期內轉介」的懷疑癌症快速通道轉介。'},
     kw:'mole skin change lump lesion 痣 皮膚變化 腫塊' },
 
   { id:'gp-5', tier:'gp', title:{en:'Low mood or anxiety, not a crisis', zh:'情緒低落或焦慮（非緊急）'},
     when:{en:'Affecting daily life but you are safe right now.', zh:'影響日常生活，但目前人身安全沒有危險。'},
-    ask:{en:'Ask about talking therapies (you can often self-refer online too) and what the practice offers directly.', zh:'查詢談話治療（很多時可自行網上轉介），以及診所本身提供的支援。'},
+    ask:{en:'Ask about talking therapies (you can often self-refer online) and what the practice offers directly.', zh:'查詢談話治療（很多時可自行網上轉介），以及診所本身提供的支援。'},
     kw:'anxiety depression low mood mental health non urgent 焦慮 情緒低落 抑鬱' },
 
   { id:'gp-6', tier:'gp', title:{en:'Needing a specialist referral', zh:'需要轉介專科'},
     when:{en:'A GP has agreed you need to see a hospital specialist.', zh:'家庭醫生已同意你需要見醫院專科醫生。'},
     ask:{en:'Ask which hospitals you can choose from \u2014 in England, usually you can pick your provider under NHS choice rules.', zh:'查詢可以選擇哪些醫院——在英格蘭，你通常可根據NHS選擇權自行揀選服務提供者。'},
     kw:'referral specialist hospital consultant 轉介 專科 醫院' },
+  
+  { id:'gp-7', tier:'gp', title:{en:'STI symptoms or wanting a test', zh:'性病症狀或想接受檢測'},
+    when:{en:'Symptoms such as discharge or discomfort, or you simply want a sexual health check-up with no symptoms.', zh:'出現分泌物或不適等症狀，或純粹想接受性健康檢查（即使沒有症狀）。'},
+    ask:{en:'You can self-refer directly to an NHS sexual health (GUM) clinic \u2014 no GP referral needed. Many clinics also offer free postal STI testing kits.', zh:'你可以直接自行轉介至NHS性健康診所——毋須經家庭醫生轉介。不少診所亦提供免費郵寄性病檢測套裝。'},
+    kw:'sti sexual health gum clinic test std 性病 性健康 檢測' },
+
+  { id:'gp-8', tier:'gp', title:{en:'Routine pregnancy questions', zh:'懷孕期間的日常查詢'},
+    when:{en:'General pregnancy questions, mild nausea, or routine concerns during pregnancy.', zh:'一般懷孕相關查詢、輕微噁心，或懷孕期間的日常疑慮。'},
+    ask:{en:'Contact your midwife team directly \u2014 you don\u2019t need to go through your GP for pregnancy care.', zh:'直接聯絡你的助產士團隊——懷孕護理毋須經家庭醫生轉介。'},
+    kw:'pregnancy midwife nausea routine 懷孕 助產士' },
 
   { id:'111-1', tier:'111', title:{en:'Not sure which service you need', zh:'不確定應該用哪種服務'},
-    when:{en:'Any time you\u2019re genuinely unsure whether it can wait.', zh:'任何時候你真的不確定情況是否可以等待。'},
+    when:{en:'Any time you\u2019re unsure whether it can wait.', zh:'任何時候你真的不確定情況是否可以等待。'},
     ask:{en:'Use 111 online first \u2014 it\u2019s faster than the phone line for most people and gives you a clear next step.', zh:'先使用111網上服務——對大部分人來說比打電話快，並會清楚告知下一步應該點做。'},
     kw:'unsure what to do not sure which service 唔知點做 不確定' },
 
@@ -244,6 +281,10 @@ const SITUATIONS = [
     when:{en:'You need help today but you are not in immediate danger.', zh:'今天就需要協助，但目前沒有即時危險。'},
     ask:{en:'Call 111 and select the mental health option \u2014 this connects to your local crisis/urgent mental health line.', zh:'致電111並選擇精神健康選項——會為你連接至地區緊急精神健康支援熱線。'},
     kw:'mental health support urgent not crisis 情緒支援 精神健康' },
+  { id:'111-6', tier:'111', title:{en:'Toothache needing same-day advice', zh:'牙痛需要即日求助'},
+    when:{en:'Dental pain that can\u2019t wait, especially out of hours or if you\u2019re not registered with a dentist.', zh:'牙齒疼痛，情況不能再等——尤其是在非辦公時間，或你尚未登記牙醫診所。'},
+    ask:{en:'Call 111 \u2014 they can direct you to an emergency dental service or an urgent dental care line in your area.', zh:'致電111——他們可以為你轉介至緊急牙科服務或當區的緊急牙科熱線。'},
+    kw:'toothache dental emergency out of hours no dentist 牙痛 緊急牙科' },
 
   { id:'utc-1', tier:'utc', title:{en:'Sprains and strains', zh:'扭傷及拉傷'},
     when:{en:'Twisted ankle, wrist, or knee \u2014 painful and swollen but you can still move it a little.', zh:'腳踝、手腕或膝蓋扭傷——疼痛及腫脹，但仍能輕微活動。'},
@@ -304,6 +345,21 @@ const SITUATIONS = [
     when:{en:'You or someone else is in immediate danger of serious harm right now.', zh:'你或其他人現時正面臨即時嚴重傷害的危險。'},
     ask:{en:'Call 999, or go to A&E and tell them it\u2019s a mental health emergency \u2014 you will be seen by a crisis-trained clinician.', zh:'致電999，或前往急症室並說明是精神健康緊急情況——你將會由受過危機處理訓練的醫護人員接見。'},
     kw:'mental health crisis suicidal emergency danger 精神健康危機' },
+
+   { id:'ae-8', tier:'ae', title:{en:'Knocked-out tooth or serious mouth injury', zh:'牙齒被撞脫或嚴重口部受傷'},
+    when:{en:'A tooth knocked out in an accident, heavy bleeding from the mouth that won\u2019t stop, or a suspected broken jaw.', zh:'意外中牙齒被撞脫、口部大量出血無法止血，或懷疑下巴骨折。'},
+    ask:{en:'Go to A&E immediately. If you have the tooth, hold it by the crown (not the root), rinse gently if dirty, and keep it moist \u2014 an adult tooth can sometimes be saved if re-implanted within about an hour.', zh:'立即前往急症室。如果撿到脫落的牙齒，請拿住牙冠（而非牙根）部分，如有污垢可輕輕沖洗，並盡量保持濕潤——成人牙齒若在約一小時內重新植入，仍有機會可以保住。'},
+    kw:'knocked out tooth dental injury broken jaw bleeding mouth 牙齒撞脫 口部受傷' },
+
+  { id:'ae-9', tier:'ae', title:{en:'Reduced baby movements, bleeding, or severe pain in pregnancy', zh:'懷孕期間胎動減少、出血或嚴重疼痛'},
+    when:{en:'Reduced or no baby movements, any vaginal bleeding, or severe abdominal pain during pregnancy.', zh:'胎動減少或完全感覺不到、任何陰道出血，或懷孕期間嚴重腹痛。'},
+    ask:{en:'Contact your maternity triage unit immediately or go straight to A&E \u2014 don\u2019t wait to see if it settles on its own.', zh:'立即聯絡你的產科分流部門，或直接前往急症室——不要等待觀察是否會自行好轉。'},
+    kw:'pregnancy bleeding reduced movements abdominal pain maternity 胎動減少 懷孕出血' },
+
+  { id:'ae-10', tier:'ae', title:{en:'A baby or child with emergency warning signs', zh:'嬰幼兒出現緊急警號'},
+    when:{en:'A baby or young child who is floppy, unusually hard to wake, has blue lips or tongue, or a rash that doesn\u2019t fade when you press a glass against it.', zh:'嬰兒或幼童身體軟弱無力、異常難以喚醒、嘴唇或舌頭發紫，或出現用玻璃杯按壓後不會褪色的皮疹。'},
+    ask:{en:'Call 999 or go to A&E immediately \u2014 these are signs of a medical emergency in young children.', zh:'立即致電999或前往急症室——這些都是幼童出現醫療緊急情況的徵狀。'},
+    kw:'baby floppy unresponsive blue lips rash glass test emergency child 嬰兒軟弱 玻璃杯測試 皮疹' },
 ];
 
 
@@ -357,6 +413,7 @@ const STORY = [
   zh:'【描述事情最終如何解決，或目前的狀況，以及哪些支援對你幫助最大。】'} },
   /*{ date:{en:'[Year]', zh:'【年份】'}, title:{en:'[What happened]', zh:'【發生了什麼事】'}, body:{en:'[Describe how things were resolved, or where things stand now, and what support helped most.]', zh:'【描述事情最終如何解決，或目前的狀況，以及哪些支援對你幫助最大。】'} },*/
 ];
+
 const LEGAL = {
   pageTitle: { en:'Legal & Privacy', zh:'法律及私隱聲明' },
   backLink: { en:'\u2190 Back to guide', zh:'\u2190 返回指南' },
