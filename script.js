@@ -118,6 +118,9 @@ function renderStaticText(){
   document.getElementById('lastReviewedLabel').textContent=t(UI.lastReviewedLabel);
   document.getElementById('lastReviewedDate').textContent=t(UI.lastReviewedDate);
   document.getElementById('contactLink').textContent=t(UI.contactLinkText);
+  document.getElementById('guideHeading').textContent= t(TABS[0].label);
+  document.getElementById('supportHeading').textContent=t(TABS[1].label);
+  document.getElementById('storyHeading').textContent=t(TABS[2].label);
 }
  
 function renderLangToggle(){
