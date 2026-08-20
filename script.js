@@ -115,12 +115,12 @@ function renderStaticText(){
   document.getElementById('storyIntro').innerHTML = t(UI.storyIntro);
   document.getElementById('footerText').innerHTML = t(UI.footerText);
   document.getElementById('legalLink').textContent =t(UI.legalLinkText);
-  document.getElementById('lastReviewedLabel').textContent=t(UI.lastReviewedLabel);
-  document.getElementById('lastReviewedDate').textContent=t(UI.lastReviewedDate);
-  document.getElementById('contactLink').textContent=t(UI.contactLinkText);
-  document.getElementById('guideHeading').textContent= t(TABS[0].label);
-  document.getElementById('supportHeading').textContent=t(TABS[1].label);
-  document.getElementById('storyHeading').textContent=t(TABS[2].label);
+  document.getElementById('lastReviewedLabel').textContent = t(UI.lastReviewedLabel);
+  document.getElementById('lastReviewedDate').textContent = t(UI.lastReviewedDate);
+  document.getElementById('contactLink').textContent = t(UI.contactLinkText);
+  document.getElementById('guideHeading').textContent = t(TABS[0].label);
+  document.getElementById('supportHeading').textContent = t(TABS[1].label);
+  document.getElementById('storyHeading').textContent = t(TABS[2].label);
 }
  
 function renderLangToggle(){
