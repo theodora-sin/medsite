@@ -415,6 +415,12 @@ section[role="tabpanel"]{ padding:var(--sp-1) 0 var(--sp-6) 0; }
   gap:var(--sp-1);
   flex:1;
 }
+@keyframes saveBounce{
+  0%{transform: scale(1);}
+  40%{transform: scale(1.35);}
+  100%{transform:scale(1);}
+}
+.save-btn.bounce{animation:saveBounce 0.35s ease}
 .save-btn{
   border:0;
   background:transparent;
