@@ -307,6 +307,7 @@ const filtered = SITUATIONS.filter(s=>{
   grid.querySelectorAll('.save-btn').forEach(btn=>{
     btn.addEventListener('click',()=>{
       const id=btn.dataset.id;
+      const nowSaved=!savedIds.has(id);
       if(savedIds.has(id)) savedIds.delete(id); else savedIds.add(id);
       saveSavedIds();
       btn.setAttribute('aria-pressed',savedIds.has(id));
