@@ -817,7 +817,7 @@ footer p{ font-size:var(--fs-sm); color:var(--ink-soft); max-width:100%; margin:
   .card,.support-item{
     break-inside:avoid;
     box-shadow:none;
-    border:1px solid#999;
+    border:1px solid #999;
     opacity:1;
     transform:none
   }
