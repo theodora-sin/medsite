@@ -115,6 +115,9 @@ function renderStaticText(){
   document.getElementById('storyIntro').innerHTML = t(UI.storyIntro);
   document.getElementById('footerText').innerHTML = t(UI.footerText);
   document.getElementById('legalLink').textContent =t(UI.legalLinkText);
+  document.getElementById('lastReviewedLabel').textContent=t(UI.lastReviewedLabel);
+  document.getElementById('lastReviewedDate').textContent=t(UI.lastReviewedDate);
+  document.getElementById('contactLink').textContent=t(UI.contactLinkText);
 }
  
 function renderLangToggle(){
