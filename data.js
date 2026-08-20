@@ -39,6 +39,10 @@ const UI = {
         en:"Save",
         zh:"收藏"
     },
+    savedConfirmMsg:{
+      en:"Saved for quick access.",
+      zh:"已收藏，方便快速查看"
+    },
     savedEmptyState:{
         en:"Nothing saved yet. Tap the star on any card to keep it here for quick access.",
         zh:"暫時未有已收藏項目。點擊卡片上的星號即可加入收藏，方便快速查看。"
