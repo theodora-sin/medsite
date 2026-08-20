@@ -320,9 +320,38 @@ const SUPPORT = [
 
 
 const STORY = [
-  { date:{en:'[Year]', zh:'【年份】'}, title:{en:'[What happened]', zh:'【發生了什麼事】'}, body:{en:'[Describe the situation \u2014 what symptoms you had, what you did first, and what you wish you\u2019d known.]', zh:'【描述當時的情況——你有什麼症狀、最初做了什麼，以及你希望當時已經知道的事。】'} },
-  { date:{en:'[Year]', zh:'【年份】'}, title:{en:'[What happened]', zh:'【發生了什麼事】'}, body:{en:'[Describe the turning point \u2014 a visit, a diagnosis, a request you made or wish you had made.]', zh:'【描述轉捩點——一次求診、一個診斷，或你曾經／應該提出的要求。】'} },
-  { date:{en:'[Year]', zh:'【年份】'}, title:{en:'[What happened]', zh:'【發生了什麼事】'}, body:{en:'[Describe how things were resolved, or where things stand now, and what support helped most.]', zh:'【描述事情最終如何解決，或目前的狀況，以及哪些支援對你幫助最大。】'} },
+  { date:{en:'[Jan 25]', zh:'【年份】'}, 
+  title:{en:'Symptom started', zh:'【發生了什麼事】'}, 
+  body:{en:'[I started experiencing severe abdominal pain after eating, along with frequent burping, bloating and nausea. I went to see my GP, who prescribed me medication and arranged a follow-up appointment after one week. After one week, my symptoms had not improved,  my GP referred me to Same Day Emergency Care(SDEC). This facility operates in the same way as A&E because the patients are triaged first. I underwent a series of blood tests at SDEC, and the results were normal. I was discharged and asked to visit my GP for further investigation.]', 
+    zh:'【描述當時的情況——你有什麼症狀、最初做了什麼，以及你希望當時已經知道的事。】'} },
+  
+  { date:{en:'[Feb 25 to Sep 25]', zh:'【年份】'}, 
+  title:{en:'[Ongoing symptoms]', zh:'【發生了什麼事】'}, 
+  body:{en:'[My symptoms have persisted until now without any sign of improvement. I was referred to some specialists by my GP who prescribed different medications to me. During this period, I’ve been doing regular blood tests. Also, I had an endoscopy done on me to rule out any kind of obstruction in my digestive system.]', 
+  zh:'【描述轉捩點——一次求診、一個診斷，或你曾經／應該提出的要求。】'} },
+
+  { date:{en:'[Oct 25 to Jan 26]', zh:'【年份】'}, 
+  title:{en:'[Specalist Investigation]', zh:'【發生了什麼事】'}, 
+  body:{en:'[In Oct, I turned 18, this allowed my GP to refer me to community gastroenterology team for further assessment and investigation. One month after my referral, I had a consultation with a community gastroenterologist. The doctor analyzed my medical history and my symptoms and made a diagnosis of functional dyspepsia. I was told that this is a condition where there is no obvious physical cause for the symptoms and some patient can be managed with medication, including a low dose of an antidepressant to help reduce the sensitivity of the nerves involved in digestion. I did not start the recommended medication until January 2026 because industrial action by resident doctors restrict me to see a GP.]', 
+  zh:'【描述事情最終如何解決，或目前的狀況，以及哪些支援對你幫助最大。】'} },
+  
+  { date:{en:'[Feb 26 to April 26]', zh:'【年份】'}, 
+  title:{en:'[Continue Monitoring]', zh:'【發生了什麼事】'}, 
+  body:{en:'[I was prescribed to take the new medications suggested by the gastroenterologist in January 2026. Even after taking both the medications, I could not get relief from the symptoms. However, initially, I felt slight relief for about two months, but gradually my situation became worse. I started losing weight and vomiting. There was nausea and bloating as well. My GP called the gastroenterologist again for further information. The gastroenterologist suggested me for MRA scan to find out the causes of my symptoms.]', 
+    zh:'【描述事情最終如何解決，或目前的狀況，以及哪些支援對你幫助最大。】'} },
+  { date:{en:'[May 26 to Early June 26]', zh:'【年份】'}, 
+  title:{en:'[Constant Monitoring]', zh:'【發生了什麼事】'}, 
+  body:{en:'[It took approximately two months for me to have the MRA scan. The scan showed a possible structural abnormality that could potentially be related to my symptoms.Around the same time, my condition become worse. I was vomiting every day and experiencing persistent nausea, severe abdominal pain, and loss of appetite, which resulted in restricted food intake. After seeing my GP, I was referred back to Same Day Emergency Care(SDEC). I had repeat blood tests and a CT scan to check for any obstruction or other acute problems. The results were reported as normal, and I was discharged again.]', 
+  zh:'【描述事情最終如何解決，或目前的狀況，以及哪些支援對你幫助最大。】'} },
+  { date:{en:'[Mid June to Mid July]', zh:'【年份】'}, 
+  title:{en:'[Hospital admission]', zh:'【發生了什麼事】'}, 
+  body:{en:'[My symptoms continued to get worse, so I called 111 for help. I was advised to attend A&E for further investigation. I initially received IV fluids in A&E before being transferred to the Acute Medical Unit(AMU) for further assessment. I was subsequently admitted to the gastroenterology ward for further investigation and treatment. During this admission, I was placed a feeding tube because I was struggling in intaking food. I underwent multiple endoscopies and had daily blood tests to monitor my condition. My parents requested a translator and a second opinion regarding my case. Having a translator was very helpful for my parents in understanding the diagnosis and the information provided by the medical team. Despite the possible structural abnormality identified on the MRA scan, my diagnosis of functional dyspepsia remained unchanged.]', 
+    zh:'【描述事情最終如何解決，或目前的狀況，以及哪些支援對你幫助最大。】'} },
+  { date:{en:'[Mid July]', zh:'【年份】'}, 
+  title:{en:'[Hospital Discharge]', zh:'【發生了什麼事】'}, 
+  body:{en:'[When I was discharged from hospital, a detailed follow-up plan was sent to my GP via dicharge letter. I also got a copy for the discharge letter. This allow me to understand what to expect from my follow-up care, what symptoms I should monitor, and when I should seek further medication care.]', 
+  zh:'【描述事情最終如何解決，或目前的狀況，以及哪些支援對你幫助最大。】'} },
+  /*{ date:{en:'[Year]', zh:'【年份】'}, title:{en:'[What happened]', zh:'【發生了什麼事】'}, body:{en:'[Describe how things were resolved, or where things stand now, and what support helped most.]', zh:'【描述事情最終如何解決，或目前的狀況，以及哪些支援對你幫助最大。】'} },*/
 ];
 
 const LEGAL = {
