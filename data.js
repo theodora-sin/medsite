@@ -123,6 +123,10 @@ const UI = {
       en:"When to use",
       zh:"何時適用"
     },
+    sidebarHeading:{
+      en:"Browse by category",
+      zh:"按分類瀏覽"      
+    },
 };
 
 
