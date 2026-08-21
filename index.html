@@ -40,52 +40,47 @@
   </div>
 </nav>
 
-<main class="wrap">
+<main class="wrap" id="main-content">
   <section id="guide" role="tabpanel">
     <h2 class="sr-only" id="guideHeading"></h2>
-    <div class="guide-layout">
-      <aside class="guide-sidebar" id="guideSidebar" aria-label="Jump to a category"></aside>
-      <div class="guide-main">
-        <p class="chip-hint" id="chipHint"></p>
-        <p class="location-note" id="locationNote"></p>
-        <div class="directory">
-          <label class="search-box">
-            <svg width="18" height="18" viewBox="0 0 16 16" fill="none"><circle cx="7" cy="7" r="5.5" stroke="currentColor"/><line x1="11" y1="11" x2="15" y2="15" stroke="currentColor"/></svg>
-            <input type="text" id="searchInput" aria-label="Search situations">
-          </label>
-          <div id="chipRow" role="group" aria-label="Filter by care setting"></div>
-          <span class="result-count" id="resultCount"></span>
-        </div>
-        <p class="section-note" id="section1Note"></p>
-        <div class="grid" id="cardGrid"></div>
-        <p class="empty-state" id="emptyState" hidden></p>
-      </div>
+    <p class="chip-hint" id="chipHint"></p>
+    <p class="location-note" id="locationNote"></p>
+ 
+    <p class="quickpick-heading" id="quickPickHeading"></p>
+    <div class="quickpick" id="quickPick"></div>
+ 
+    <div class="directory">
+      <label class="search-box">
+        <svg width="18" height="18" viewBox="0 0 16 16" fill="none"><circle cx="7" cy="7" r="5.5" stroke="currentColor"/><line x1="11" y1="11" x2="15" y2="15" stroke="currentColor"/></svg>
+        <input type="text" id="searchInput" aria-label="Search situations">
+      </label>
+      <div id="chipRow" role="group" aria-label="Filter by care setting"></div>
+      <span class="result-count" id="resultCount"></span>
     </div>
-  </section>
-
+ 
     <p class="section-note" id="section1Note"></p>
     <div class="grid" id="cardGrid"></div>
     <p class="empty-state" id="emptyState" hidden></p>
   </section>
-
+ 
   <section id="support" role="tabpanel" hidden>
     <h2 class="sr-only" id="supportHeading"></h2>
     <p class="section-note" id="section2Note"></p>
     <div class="support-grid" id="supportGrid"></div>
   </section>
-
+ 
   <section id="firstaid" role="tabpanel" hidden>
     <p class="section-note" id="firstAidNote"></p>
     <div id="firstAidList"></div>
     <p class="firstaid-sources" id="firstAidSources"></p>
   </section>
-  
-  <section class="story-section wrap" id="story" role="tabpanel" hidden>
-    <h2 class="sr-only" id="storyHeading"></h2>
-    <p class="story-intro" id="storyIntro"></p>
-    <div class="timeline" id="storyTimeline"></div>
-  </section>
 </main>
+ 
+<section class="story-section wrap" id="story" role="tabpanel" hidden>
+  <h2 class="sr-only" id="storyHeading"></h2>
+  <p class="story-intro" id="storyIntro"></p>
+  <div class="timeline" id="storyTimeline"></div>
+</section>
 
 <footer class="wrap">
   <nav class="fotter-nav" id="footerNav" aria-label="Quick links"></nav>
