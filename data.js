@@ -131,6 +131,14 @@ const UI = {
       en:"Browse by category",
       zh:"按分類瀏覽"      
     },
+    shareBtnLabel:{
+      en:"Share",
+      zh:"分享"
+    },
+    shareCopiedMsg:{
+      en:"Copied to clipboard",
+      zh:"已複製到剪貼簿"
+    },
 };
 
 
