@@ -121,8 +121,10 @@ function renderStaticText(){
   document.getElementById('guideHeading').textContent = t(TABS[0].label);
   document.getElementById('supportHeading').textContent = t(TABS[1].label);
   document.getElementById('storyHeading').textContent = t(TABS[2].label);
+  document.getElementById("firstAidNote").textContent = t(UI.firstAidNote);
+  document.getElementById('firstAidSource').textContent= t(UI.firstAidSources);
 }
- 
+
 function renderLangToggle(){
   const box = document.getElementById('langToggle');
   box.innerHTML = `
@@ -169,6 +171,7 @@ function renderZoomToggle(){
 const TABS = [
   { key:'guide',   label:{en:'Guide', zh:'指南'} },
   { key:'support', label:{en:'Support', zh:'支援'} },
+  { key:'firstaid', label:{en:'First Aid', zh:'急救'} },
   { key:'story',   label:{en:'Story', zh:'故事'} },
 ];
  
@@ -207,11 +210,26 @@ function moveTabIndicator(){
 function showActiveTab(){
   document.getElementById('guide').hidden = activeTab !== 'guide';
   document.getElementById('support').hidden = activeTab !== 'support';
+  document.getElementById('firstaid').hidden= activeTab !== 'firstaid';
   document.getElementById('story').hidden = activeTab !== 'story';
   document.querySelectorAll('.tab-btn').forEach(btn=>{
     btn.setAttribute('aria-selected', btn.dataset.tab === activeTab ? 'true' : 'false');
   });
   moveTabIndicator();
+}
+function renderFirstAid(){
+  const grid= document.getElementById('firstAidList');
+  grid.innerHTML= FIRST_AID.map(topic => `
+    <article class="firstaid-card">
+      <h3 class="firstaid-title">${t(topic.title)}</h3>
+      <p class="firstaid-when"><span class="k">${t(UI.firstAidWhenLabel)}</span>${t(topic.when)}</p>
+      <ol class="firstaid-steps">
+        ${topic.steps.map(step => `<li>${t(step)}</li>`).join('')}
+      </ol>
+      ${topic.warning ? `<p class="firstaid-warning">${t(topic.warning)}</p>` : ''}
+    </article>
+  `).join('');
+  observeReveal(grid.querySelectorAll('.firstaid-card'));
 }
  
 function renderChips(){
@@ -322,6 +340,7 @@ const filtered = SITUATIONS.filter(s=>{
         renderCards();
     });
   });
+
   grid.querySelectorAll('.locate-btn').forEach(btn=>{
     btn.addEventListener('click',()=> locateAndOpen(btn.dataset.tier));
   });
@@ -392,6 +411,7 @@ function renderAll(){
   renderChips();
   renderCards();
   renderSupport();
+  renderFirstAid();
   renderStory();
   showActiveTab();
 }
