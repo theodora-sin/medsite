@@ -127,7 +127,7 @@ const UI = {
       en:"When to use",
       zh:"何時適用"
     },
-    sidebarHeading:{
+    quickPickHeading:{
       en:"Browse by category",
       zh:"按分類瀏覽"      
     },
