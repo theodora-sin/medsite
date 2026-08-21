@@ -533,5 +533,18 @@ const FIRST_AID=[
       {en:'Keep alternating between 5 back blows and 5 abdominal thrusts until the blockage clears or help arrives.', zh:'持續交替進行5下背部拍打及5下腹部推擠，直至阻塞清除或救援到達。'},
       {en:'If the person becomes unresponsive, lower them to the ground carefully and begin CPR.', zh:'如對方失去反應，小心將其放到地上，並開始心肺復甦法。'}
     ]
-  }      
+  },
+  {
+    key:'burns',
+    title:{en:'Burns and scalds', zh:'燒傷及燙傷'},
+    when:{en:'Someone has been burned by heat, steam, chemicals, or electricity.', zh:'有人被熱力、蒸氣、化學物質或電流灼傷。'},
+    steps:[
+      {en:'Stop the burning process \u2014 move the person away from the heat source. For chemical burns, brush off dry chemicals first.', zh:'先停止持續灼傷——將傷者移離熱源。如是化學灼傷，先掃走乾的化學物質。'},
+      {en:'Remove any clothing or jewellery near the burn, unless it is stuck to the skin.', zh:'移除傷口附近的衣物或飾物，除非已黏在皮膚上。'},
+      {en:'Cool the burn under cool (not ice-cold) running water for 20 minutes. Do not use ice, creams, or ointments.', zh:'用冷水（並非冰水）沖洗傷口20分鐘。切勿使用冰塊、藥膏或藥油。'},
+      {en:'Cover the burn loosely with cling film or a clean, non-fluffy dressing.', zh:'用保鮮紙或乾淨、不會脫毛的敷料鬆鬆地蓋住傷口。'},
+      {en:'Do not burst any blisters.', zh:'切勿弄破水疱。'},
+      {en:'Call 999 or go to A&E for burns larger than your palm, on the face/hands/genitals, or if the person is a baby, child, or in shock.', zh:'如燒傷範圍大過手掌、位於面部／手部／私處，或傷者是嬰兒、兒童或出現驚恐，請致電999或前往急症室。'}
+    ]
+  },      
 ];
