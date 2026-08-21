@@ -645,6 +645,100 @@ section[role="tabpanel"]{ padding:var(--sp-1) 0 var(--sp-6) 0; }
   margin-top:var(--sp-3)
 }
 
+.conditions-nhs-link{
+  display:inline-block;
+  font-weight:var(--fw-bold);
+  font-size:var(--fs-sm);
+  color:var(--tier-gp);
+  border:1.5px solid var(--tier-gp);
+  padding:9px 16px;
+  border-radius:100px;
+  text-decoration:none;
+  margin-bottom:var(--sp-3);
+}
+.conditions-nhs-link:hover{ 
+  background:var(--tier-gp); 
+  color:#fff; 
+}
+.conditions-category{
+  margin-bottom:var(--sp-4);
+  opacity:0;
+  transform:translateY(10px);
+  transition:opacity 0.45s ease, transform 0.45s ease;
+}
+.conditions-category.in-view{ opacity:1; transform:translateY(0); }
+.conditions-category-heading{
+  font-family:var(--font-display);
+  font-weight:var(--fw-bold);
+  font-size:1.4rem;
+  text-transform:uppercase;
+  letter-spacing:0.01em;
+  color:var(--ink);
+  margin:0 0 var(--sp-2) 0;
+  padding-bottom:var(--sp-1);
+  border-bottom:2px solid var(--line);
+}
+.conditions-category-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill, minmax(260px, 1fr));
+  gap:var(--sp-2);
+}
+.conditions-item{
+  background:var(--paper-raised);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:var(--sp-2);
+  display:flex;
+  flex-direction:column;
+  gap:var(--sp-1);
+}
+.conditions-item-title{
+  font-family:var(--font-body);
+  font-weight:var(--fw-bold);
+  font-size:var(--fs-base);
+  margin:0;
+}
+.conditions-item-summary{
+  font-size:var(--fs-sm);
+  color:var(--ink-soft);
+  margin:0;
+}
+.conditions-item-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:var(--sp-1);
+  margin-top:4px;
+}
+.conditions-link, .conditions-external-link{
+  display:inline-flex;
+  align-items:center;
+  font-weight:var(--fw-bold);
+  font-size:var(--fs-sm);
+  background:transparent;
+  border-radius:100px;
+  padding:7px 14px;
+  cursor:pointer;
+  text-decoration:none;
+  transition:background 0.15s ease, color 0.15s ease;
+}
+.conditions-link{ 
+  color:var(--tier-gp); 
+  border:1px solid var(--tier-gp); 
+}
+.conditions-link:hover{ 
+  background:var(--tier-gp); 
+  color:#fff; 
+}
+.conditions-external-link{ 
+  color:var(--ink-soft); 
+  border:1px solid var(--line); 
+}
+.conditions-external-link:hover{ 
+  background:var(--ink); 
+  color:#fff; 
+  border-color:var(--ink); 
+}
+
 .story-section{ background:transparent; }
 .story-intro{
   max-width:100%;
