@@ -103,6 +103,10 @@ const UI = {
         en:"My experience",
         zh:"我的經歷"
     },
+    section3Note:{
+      en:"This is my own experience using the NHS system.",
+      zh:"這是我使用英國國民醫療服務體系（NHS）的親身經歷。"
+    },
     footerText:{
         en:"<strong>About this site:\u00A0</strong> This is built from personal experience navigating NHS care in the UK.\u00A0 It meant to help you recognise a situation and find the right place faster.\u00A0 It is not medical advice, a diagnosis or a substitute for a clinician who can examine you.\u00A0 Service details (opening hours, exact age ranges, what a pharmacy can treat) can change over time and vary slightly across England, Scotland, Wales and Northern Ireland.\u00A0 Always confirm specifies with NHS 111, your GP practice or nhs.uk. If you are in immediate danger, please call 999",
         zh:'<strong>關於這個網站：</strong>這個網站根據自己在英國求診的親身經歷建立了，希望幫助你更快辨認情況、找到合適的求診途徑——本網站並非醫療建議、診斷，亦不能取代能夠親自為你檢查的醫護人員。各項服務細節（開放時間、確實年齡範圍、藥房可治療的病症等）會隨時間改變，英格蘭、蘇格蘭、威爾斯及北愛爾蘭之間亦略有不同——請以 NHS 111、你的家庭醫生診所或 nhs.uk 的最新資料為準。如有即時危險，請致電 999。'
