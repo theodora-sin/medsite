@@ -272,6 +272,38 @@ function renderChips(){
     renderCards();
   });
 }
+
+function renderSidebar(){
+  const box = document.getElementById('guideSidebar');
+  const allLink = `<button class="sidebar-link" data-tier="all">${t(UI.chipAll)}</button>`;
+  const tierLinks = TIERS.map(tier => `
+    <button class="sidebar-link" data-tier="${tier.key}">
+      <span class="chip-icon">${ICONS[tier.key]}</span>${t(tier.name)}
+    </button>
+  `).join('');
+  box.innerHTML=`<p class="sidebar-heading">${t(UI.sidebarHeading)}</p>` + allLink + tierLinks;
+  box.querySelectorALl('.sidebar-link').forEach(link=>{
+    link.addEventListener('click',()=>{
+      const matchingChip=document.querySelector(`.chip[data-tier="${link.dataset.tier}"]`);
+      if(matchingChip) matchingChip.click();
+      window.scrollTo({top:0, behaviour:'smooth'});
+    });
+  });
+}
+
+function renderFooterNav(){
+  const box = document.getElementById('footerNav');
+  box.innerHTML = TABS.map(tab => `<button type="button" data-tab="${tab.key}">${t(tab.label)}</button>`).join('');
+  box.querySelectorAll('button').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      activeTab = btn.daraset.tab;
+      localStorage.setItem('medsite_tab',activeTab);
+      showActiveTab();
+      document.querySelector('.tabbar').scrollIntoView({behavior:'smooth', block:'start'});
+    });
+  });
+}
+
 function syncChips(){
   document.querySelectorAll('.chip').forEach(chip=>{
     chip.setAttribute('aria-pressed', activeTiers.has(chip.dataset.tier) ? 'true' : 'false');
@@ -408,11 +440,13 @@ function renderAll(){
   renderLangToggle();
   renderZoomToggle();
   renderTabBar();
+  renderSidebar();
   renderChips();
   renderCards();
   renderSupport();
   renderFirstAid();
   renderStory();
+  renderFooterNav();
   showActiveTab();
 }
  
