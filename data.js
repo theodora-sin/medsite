@@ -12,11 +12,11 @@ const UI = {
         zh:"應該去哪裡求診？",
     },
     heroSub:{
-        en:"Six routes into NHS care, ranked from 'wait it out' to 'call 999'--so you can work out where to go, what to ask for and what to expect before you standing in a queue. ",
+        en:"Six routes into NHS care, ranked from 'sort yourself' to 'call 999'--so you can work out where to go, what to ask for and what to expect. ",
         zh:"由「先自行處理」到「致電999」，六條進入英國NHS醫療系統的途徑——讓你在出門前，就先知道應該去哪裡、可以提出什麼要求、會發生什麼事。"
     },
     heroByline:{
-        en:"We built this website to make it easier for people to navigate the UK healthcare system.",
+        en:"We built this website to make it easier for people to navigate into UK healthcare system.",
         zh:"我們建立了這個網站，希望讓大家更容易在英國的醫療系統中找到合適的求診方式。"
     },
     searchPlaceholder:{
@@ -103,16 +103,13 @@ const UI = {
         en:"My experience",
         zh:"我的經歷"
     },
-    storyIntro:{
-        en:"This guide exists because of what I went through",
-        zh:"這個指南的出現，源於我親身經歷過的事",
-    },
     footerText:{
         en:"<strong>About this site:\u00A0</strong> This is built from personal experience navigating NHS care in the UK.\u00A0 It meant to help you recognise a situation and find the right place faster.\u00A0 It is not medical advice, a diagnosis or a substitute for a clinician who can examine you.\u00A0 Service details (opening hours, exact age ranges, what a pharmacy can treat) can change over time and vary slightly across England, Scotland, Wales and Northern Ireland.\u00A0 Always confirm specifies with NHS 111, your GP practice or nhs.uk. If you are in immediate danger, please call 999",
         zh:'<strong>關於這個網站：</strong>這個網站根據自己在英國求診的親身經歷建立了，希望幫助你更快辨認情況、找到合適的求診途徑——本網站並非醫療建議、診斷，亦不能取代能夠親自為你檢查的醫護人員。各項服務細節（開放時間、確實年齡範圍、藥房可治療的病症等）會隨時間改變，英格蘭、蘇格蘭、威爾斯及北愛爾蘭之間亦略有不同——請以 NHS 111、你的家庭醫生診所或 nhs.uk 的最新資料為準。如有即時危險，請致電 999。'
 
     },
 };
+
 
 const TIERS=[
     {key:'self', code:'01', color:'var(--tier-self)', bg:'var(--tier-self-bg)',
