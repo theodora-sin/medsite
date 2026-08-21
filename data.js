@@ -9,23 +9,23 @@ const UI = {
     },
     title:{
         en:"Which place shall I visit",
-        zh:"應該去哪裡求診？",
+        zh:"應該去哪裡求診？"
     },
     heroSub:{
-        en:"Six routes into NHS care, ranked from 'sort yourself' to 'call 999'--so you can work out where to go, what to ask for and what to expect. ",
+        en:"Six routes into NHS care, ranked from 'sort yourself' to 'call 999' \u2014 so you can work out where to go, what to ask for, and what to expect.",
         zh:"由「先自行處理」到「致電999」，六條進入英國NHS醫療系統的途徑——讓你在出門前，就先知道應該去哪裡、可以提出什麼要求、會發生什麼事。"
     },
     heroByline:{
-        en:"We built this website to make it easier for people to navigate into UK healthcare system.",
+        en:"We built this website to make it easier for people to navigate the UK healthcare system.",
         zh:"我們建立了這個網站，希望讓大家更容易在英國的醫療系統中找到合適的求診方式。"
     },
     searchPlaceholder:{
-        en:"Search a symptom or situation\u00A0eg. 'earache', 'chest pain'",
+        en:"Search a symptom or situation, e.g. 'earache', 'chest pain'",
         zh:"搜尋症狀或情況…例如「耳痛」、「胸痛」"
     },
     chipAll:{
         en:"All",
-        zh:'全部',
+        zh:'全部'
     },
     chipHint:{
         en:"Tap a category below, or search a symptom \u2014 no typing required.",
@@ -76,16 +76,16 @@ const UI = {
         zh:'尋找你的情況'
     },
     section1Note:{
-        en:"Filter by care setting or search a symptom. Each entry shows when that route fits, what to expect and what you allow to ask",
+        en:"Filter by care setting or search a symptom. Each entry shows when that route fits, what to expect, and what you're allowed to ask.",
         zh:"按求診途徑篩選，或搜尋症狀。每個項目都會說明何時適用、會發生什麼事，以及你可以提出的要求。"
     },
     emptyState:{
-        en:"No matches. Try a different word or clear the filter\u00A0If you unsure what to do, NHS 111 online will triagge you to right place.",
+        en:"No matches. Try a different word or clear the filter. If you're unsure what to do, NHS 111 online will triage you to the right place.",
         zh:"沒有符合的結果。試試其他字詞，或清除篩選——如果你不確定應該點做，NHS 111網上分流服務隨時可以幫到你。"
     },
     cardWhenLabel:{
-        en:"When this fits,",
-        zh:"適用情況",
+        en:"When this fits",
+        zh:"適用情況"
     },
     cardAskLabel: { 
         en:'What to do / ask for', 
@@ -96,7 +96,7 @@ const UI = {
         zh:'你可以提出的支援' 
     },    
     section2Note:{
-        en:"Care isn't only happen in the appointment.\u00A0These are requests and services that exist across the system, most people just aren't told . ",
+        en:"Care doesn't only happen in the appointment. These are requests and services that exist across the system \u2014 most people just aren't told about them.",
         zh:"醫療支援不只限於診症室內發生的事。以下是整個醫療系統中一直存在的服務與要求——只是大部分人並不知道。"
     },
     section3Title:{
@@ -108,7 +108,7 @@ const UI = {
       zh:"這是我使用英國國民醫療服務體系（NHS）的親身經歷。"
     },
     footerText:{
-        en:"<strong>About this site:\u00A0</strong> This is built from personal experience navigating NHS care in the UK.\u00A0 It meant to help you recognise a situation and find the right place faster.\u00A0 It is not medical advice, a diagnosis or a substitute for a clinician who can examine you.\u00A0 Service details (opening hours, exact age ranges, what a pharmacy can treat) can change over time and vary slightly across England, Scotland, Wales and Northern Ireland.\u00A0 Always confirm specifies with NHS 111, your GP practice or nhs.uk. If you are in immediate danger, please call 999",
+        en:"<strong>About this site:</strong> This is built from personal experience navigating NHS care in the UK. It's meant to help you recognise a situation and find the right place faster. It is not medical advice, a diagnosis, or a substitute for a clinician who can examine you. Service details (opening hours, exact age ranges, what a pharmacy can treat) can change over time and vary slightly across England, Scotland, Wales and Northern Ireland. Always confirm specifics with NHS 111, your GP practice, or nhs.uk. If you are in immediate danger, please call 999.",
         zh:'<strong>關於這個網站：</strong>這個網站根據自己在英國求診的親身經歷建立了，希望幫助你更快辨認情況、找到合適的求診途徑——本網站並非醫療建議、診斷，亦不能取代能夠親自為你檢查的醫護人員。各項服務細節（開放時間、確實年齡範圍、藥房可治療的病症等）會隨時間改變，英格蘭、蘇格蘭、威爾斯及北愛爾蘭之間亦略有不同——請以 NHS 111、你的家庭醫生診所或 nhs.uk 的最新資料為準。如有即時危險，請致電 999。'
     },
     firstAidTabLabel:{
@@ -116,7 +116,7 @@ const UI = {
       zh:"急救"
     },
     firstAidNote:{
-      en:"Quick steps for common emergencies while you wait for help.These don't replace calling 999 in a genuine emergency\u2014 call first, then help",
+      en:"Quick steps for common emergencies while you wait for help. These don't replace calling 999 in a genuine emergency \u2014 call first, then help.",
       zh:"應對常見緊急情況嘅簡易步驟，適用於等候救援期間。在真正緊急情況下，這些步驟並不能取代致電999——請先致電求助，再開始施救。"
     },
     firstAidSources:{
@@ -129,7 +129,7 @@ const UI = {
     },
     quickPickHeading:{
       en:"Browse by category",
-      zh:"按分類瀏覽"      
+      zh:"按分類瀏覽"
     },
     shareBtnLabel:{
       en:"Share",
@@ -139,22 +139,41 @@ const UI = {
       en:"Copied to clipboard",
       zh:"已複製到剪貼簿"
     },
+    conditionsTabLabel:{
+      en:"Conditions A-Z",
+      zh:"病症索引 A-Z"
+    },
+    conditionsNote:{
+      en:"An index of situations from the Guide, organised by body system. For full clinical detail on any condition, see the NHS's own Health A-Z.",
+      zh:"以下按身體系統整理指南中的情況，方便查閱。如需完整臨床資訊，請參閱NHS官方的Health A-Z（健康索引）。"
+    },
+    conditionsNhsLabel:{
+      en:"Browse the full NHS Health A-Z",
+      zh:"瀏覽完整NHS Health A-Z"
+    },
+    viewInGuideLabel:{
+      en:"View in Guide",
+      zh:"在指南中查看"
+    },
+    nhsReferenceLabel:{
+      en:"NHS reference",
+      zh:"NHS參考資料"
+    }
 };
-
 
 const TIERS=[
     {key:'self', code:'01', color:'var(--tier-self)', bg:'var(--tier-self-bg)',
     name:{en:'Self-care',zh:'自行處理'},
-    desc:{en:'rest,fluids,over-the-counter medicine, no appointment needed',zh:'休息、多喝水、非處方藥——毋須預約'}},
+    desc:{en:'Rest, fluids, over-the-counter medicine', zh:'休息、多喝水、非處方藥'}},
   { key:'pharmacy', code:'02', color:'var(--tier-pharmacy)', bg:'var(--tier-pharmacy-bg)',
     name:{en:'Pharmacy', zh:'藥房'},
-    desc:{en:'Walk in, no booking \u00A0 pharmacists can now treat 7 conditions', zh:'直接到店藥房，毋須預約——藥劑師現時可免費治療7種常見病症'} },
+    desc:{en:'Walk in, no booking \u2014 pharmacists can now treat 7 conditions', zh:'直接到店藥房，毋須預約——藥劑師現時可免費治療7種常見病症'} },
   { key:'gp', code:'03', color:'var(--tier-gp)', bg:'var(--tier-gp-bg)',
     name:{en:'GP', zh:'家庭醫生'},
-    desc:{en:'Ongoing, unexplained, or worsening symptoms \u00A0 book an appointment', zh:'持續、不明原因或正在惡化的症狀——需要預約'} },
+    desc:{en:'Ongoing, unexplained, or worsening symptoms \u2014 book an appointment', zh:'持續、不明原因或正在惡化的症狀——需要預約'} },
   { key:'111', code:'04', color:'var(--tier-111)', bg:'var(--tier-111-bg)',
     name:{en:'NHS 111', zh:'NHS 111 熱線'},
-    desc:{en:'Unsure what to do, or its outside GP hours \u00A0 call or go online', zh:'不確定應該點做，或家庭醫生診所已關門——致電或上網查詢'} },
+    desc:{en:'Unsure what to do, or it\u2019s outside GP hours \u2014 call or go online', zh:'不確定應該點做，或家庭醫生診所已關門——致電或上網查詢'} },
   { key:'utc', code:'05', color:'var(--tier-utc)', bg:'var(--tier-utc-bg)',
     name:{en:'Urgent Treatment Centre', zh:'緊急治療中心'},
     desc:{en:'Same-day injuries that aren\u2019t life-threatening', zh:'非致命，但需要即日處理的受傷'} },
@@ -162,7 +181,6 @@ const TIERS=[
     name:{en:'A&E / 999', zh:'急症室／999'},
     desc:{en:'Life-threatening \u2014 chest pain, stroke signs, severe bleeding', zh:'有生命危險——胸痛、中風徵狀、大量出血'} },
 ];
- 
 
 const SITUATIONS = [
   { id:'self-1', tier:'self', title:{en:'Common cold or mild cough', zh:'普通感冒或輕微咳嗽'},
@@ -197,7 +215,7 @@ const SITUATIONS = [
 
   { id:'self-7', tier:'self', title:{en:'Mild illness in a baby or young child', zh:'嬰幼兒輕微不適'},
     when:{en:'Mild cold symptoms in a baby or toddler who is able to eat or drink normally and has no high fever.', zh:'嬰兒或幼童有輕微感冒症狀，餵食正常，亦沒有高燒。'},
-    ask:{en:'Fluids, rest, and infant paracetamol if needed following the packet instructions for their age.', zh:'補充水分、休息，有需要可按包裝上按年齡建議的劑量服用嬰幼兒撲熱息痛'},
+    ask:{en:'Fluids, rest, and infant paracetamol if needed, following the packet instructions for their age.', zh:'補充水分、休息，有需要可按包裝上按年齡建議的劑量服用嬰幼兒撲熱息痛。'},
     kw:'baby toddler mild cold fever child self care 嬰兒 幼童 輕微感冒' },
 
   { id:'pharmacy-1', tier:'pharmacy', title:{en:'Sinusitis', zh:'鼻竇炎'},
@@ -207,12 +225,12 @@ const SITUATIONS = [
 
   { id:'pharmacy-2', tier:'pharmacy', title:{en:'Sore throat', zh:'喉嚨痛'},
     when:{en:'Painful swallowing, red throat, age 5+, no difficulty breathing.', zh:'吞嚥疼痛、喉嚨發紅，5歲或以上，沒有呼吸困難。'},
-    ask:{en:'Consultanting pharmacy first  walk in and ask at the counter. They\u2019ll check for signs that need onward referral.', zh:'直接到藥房要求諮詢，在櫃檯查詢即可。藥劑師會檢查是否有需要轉介的徵狀。'},
+    ask:{en:'Ask for a Pharmacy First consultation \u2014 walk in and ask at the counter. They\u2019ll check for signs that need onward referral.', zh:'直接到藥房要求諮詢，在櫃檯查詢即可。藥劑師會檢查是否有需要轉介的徵狀。'},
     kw:'sore throat tonsillitis pharmacy first 喉嚨痛 扁桃腺炎' },
 
   { id:'pharmacy-3', tier:'pharmacy', title:{en:'Earache', zh:'耳痛'},
     when:{en:'Ear pain, possible mild discharge \u2014 ages 1 to 17.', zh:'耳朵疼痛，可能有輕微分泌物——適用於1至17歲。'},
-    ask:{en:'Pharmacy First consultation.No appointment required. They\u2019ll refer you on if it looks like it needs a GP.', zh:'藥房諮詢，毋須預約。如有需要，藥劑師會轉介你去見家庭醫生。'},
+    ask:{en:'Pharmacy First consultation. No appointment required. They\u2019ll refer you on if it looks like it needs a GP.', zh:'藥房諮詢，毋須預約。如有需要，藥劑師會轉介你去見家庭醫生。'},
     kw:'earache ear infection pain pharmacy first child 耳痛 耳部感染' },
 
   { id:'pharmacy-4', tier:'pharmacy', title:{en:'Infected insect bite', zh:'受感染的昆蟲叮咬'},
@@ -238,7 +256,7 @@ const SITUATIONS = [
   { id:'pharmacy-8', tier:'pharmacy', title:{en:'Medicines advice or minor ailments', zh:'藥物諮詢或輕微不適'},
     when:{en:'Unsure if a medicine is safe with others you take, or a general minor symptom.', zh:'不確定某種藥物與正在服用的其他藥物是否安全同服，或一般輕微症狀。'},
     ask:{en:'Ask the pharmacist directly \u2014 no appointment needed, and they can flag if you actually need a GP.', zh:'直接詢問藥劑師——毋須預約，如有需要他們會建議你去見家庭醫生。'},
-    kw:'medicine advice interaction over the counter 藥物諮詢 ' },
+    kw:'medicine advice interaction over the counter 藥物諮詢' },
 
   { id:'pharmacy-9', tier:'pharmacy', title:{en:'Emergency contraception', zh:'事後避孕'},
     when:{en:'You need emergency contraception (the \u2018morning after pill\u2019) after unprotected sex.', zh:'在無保護措施的性行為後，需要事後避孕「事後丸」。'},
@@ -257,12 +275,12 @@ const SITUATIONS = [
 
   { id:'gp-3', tier:'gp', title:{en:'Unexplained weight loss or fatigue', zh:'不明原因體重下降或疲勞'},
     when:{en:'No clear cause, going on for weeks, affecting daily life.', zh:'原因不明，持續數星期，影響日常生活。'},
-    ask:{en:'Ask directly for blood tests. You can request the results and ask doctor to explain in plain terms.', zh:'直接要求安排驗血。你可以要求醫生用淺白的方式解釋結果。'},
+    ask:{en:'Ask directly for blood tests. You can request the results and ask the doctor to explain them in plain terms.', zh:'直接要求安排驗血。你可以要求醫生用淺白的方式解釋結果。'},
     kw:'weight loss fatigue tired unexplained 體重下降 疲勞' },
 
   { id:'gp-4', tier:'gp', title:{en:'A mole or skin change', zh:'痣或皮膚變化'},
     when:{en:'New mole, or an existing one changing shape, colour, or size.', zh:'新長出的痣，或原有的痣在形狀、顏色或大小上有變化。'},
-    ask:{en:'Ask specifically to be examined and, if needed, ask GP to refer to the 2-week-wait suspected cancer pathway.', zh:'明確要求檢查，如有需要，可要求透過「兩星期內轉介」的懷疑癌症快速通道轉介。'},
+    ask:{en:'Ask specifically to be examined and, if needed, ask your GP to refer you under the 2-week-wait suspected cancer pathway.', zh:'明確要求檢查，如有需要，可要求透過「兩星期內轉介」的懷疑癌症快速通道轉介。'},
     kw:'mole skin change lump lesion 痣 皮膚變化 腫塊' },
 
   { id:'gp-5', tier:'gp', title:{en:'Low mood or anxiety, not a crisis', zh:'情緒低落或焦慮（非緊急）'},
@@ -272,7 +290,7 @@ const SITUATIONS = [
 
   { id:'gp-6', tier:'gp', title:{en:'Needing a specialist referral', zh:'需要轉介專科'},
     when:{en:'A GP has agreed you need to see a hospital specialist.', zh:'家庭醫生已同意你需要見醫院專科醫生。'},
-    ask:{en:'Ask which hospitals you can choose from \u2014 in England, usually you can pick your provider under NHS choice rules.', zh:'查詢可以選擇哪些醫院——在英格蘭，你通常可根據NHS選擇權自行揀選服務提供者。'},
+    ask:{en:'Ask which hospitals you can choose from \u2014 in England, you can usually pick your provider under NHS choice rules.', zh:'查詢可以選擇哪些醫院——在英格蘭，你通常可根據NHS選擇權自行揀選服務提供者。'},
     kw:'referral specialist hospital consultant 轉介 專科 醫院' },
   
   { id:'gp-7', tier:'gp', title:{en:'STI symptoms or wanting a test', zh:'性病症狀或想接受檢測'},
@@ -309,6 +327,7 @@ const SITUATIONS = [
     when:{en:'You need help today but you are not in immediate danger.', zh:'今天就需要協助，但目前沒有即時危險。'},
     ask:{en:'Call 111 and select the mental health option \u2014 this connects to your local crisis/urgent mental health line.', zh:'致電111並選擇精神健康選項——會為你連接至地區緊急精神健康支援熱線。'},
     kw:'mental health support urgent not crisis 情緒支援 精神健康' },
+
   { id:'111-6', tier:'111', title:{en:'Toothache needing same-day advice', zh:'牙痛需要即日求助'},
     when:{en:'Dental pain that can\u2019t wait, especially out of hours or if you\u2019re not registered with a dentist.', zh:'牙齒疼痛，情況不能再等——尤其是在非辦公時間，或你尚未登記牙醫診所。'},
     ask:{en:'Call 111 \u2014 they can direct you to an emergency dental service or an urgent dental care line in your area.', zh:'致電111——他們可以為你轉介至緊急牙科服務或當區的緊急牙科熱線。'},
@@ -345,7 +364,7 @@ const SITUATIONS = [
     kw:'chest pain heart attack tight crushing 胸痛 心臟病發' },
 
   { id:'ae-2', tier:'ae', title:{en:'Stroke signs (FAST)', zh:'中風徵狀（FAST）'},
-    when:{en:'Face drooping, Arm weakness, Speech difficulty \u2014 Time to call 999, even if symptoms pass.', zh:'面部下垂、手臂無力、說話困難——即使徵狀消退，都要立即致電999。'},
+    when:{en:'Face drooping, arm weakness, speech difficulty \u2014 time to call 999, even if symptoms pass.', zh:'面部下垂、手臂無力、說話困難——即使徵狀消退，都要立即致電999。'},
     ask:{en:'Note the exact time symptoms started \u2014 this determines treatment options at hospital.', zh:'記下徵狀開始的確實時間——這會影響醫院提供的治療方案。'},
     kw:'stroke face drooping arm weakness speech fast 中風' },
 
@@ -410,36 +429,38 @@ const SUPPORT = [
 const STORY = [
   { date:{en:'Jan 25', zh:'2025年1月'}, 
   title:{en:'Symptom started', zh:'病徵開始出現'}, 
-  body:{en:'I started experiencing severe abdominal pain after eating, along with frequent burping, bloating and nausea. I went to see my GP, who prescribed me medication and arranged a follow-up appointment after one week. After one week, my symptoms had not improved,  my GP referred me to Same Day Emergency Care(SDEC). This facility operates in the same way as A&E but the patients have been triaged before enter SDEC. I underwent a series of blood tests at SDEC, and the results were normal. I was discharged and asked to visit my GP for further investigation.', 
+  body:{en:'I started experiencing severe abdominal pain after eating, along with frequent burping, bloating and nausea. I went to see my GP, who prescribed me medication and arranged a follow-up appointment after one week. After one week, my symptoms had not improved, so my GP referred me to Same Day Emergency Care (SDEC). This facility operates in the same way as A&E, but patients have been triaged before entering SDEC. I underwent a series of blood tests at SDEC, and the results were normal. I was discharged and asked to visit my GP for further investigation.', 
     zh:'我開始在進食後出現嚴重腹痛，並伴隨頻密打嗝、腹脹及反胃。我去見家庭醫生，醫生為我處方藥物，並安排一星期後覆診。一星期後，我的症狀並沒有改善，家庭醫生將我轉介至醫院日間治療中心（Same Day Emergency Care，SDEC）。這個部門的運作模式與急症室相似，病人已經分流。我在SDEC接受了一連串血液檢查，結果顯示正常。其後我獲安排出院，並建議回家庭醫生處作進一步檢查。'} },
   
   { date:{en:'Feb 25 to Sep 25', zh:'2025年2月至9月'}, 
   title:{en:'Ongoing symptoms', zh:'症狀持續'}, 
-  body:{en:'My symptoms have persisted until now without any sign of improvement.  GP used an internal system to ask specialists about my case, and they ask the GP to prescribe different medications to me. During this period, I’ve been doing regular blood tests. Also, I had an endoscopy done on me to rule out any kind of obstruction in my digestive system.]', 
-  zh:'我的症狀持續至今，一直沒有好轉的跡象。家庭醫生使用內部系統向專科醫生諮詢我的病情,專家要求全科醫生開不同的藥物給我。他們為我處方了不同的藥物。在這段期間，我一直定期接受驗血。此外，我亦接受了內視鏡檢查，以排除消化系統出現任何阻塞的可能。'} },
+  body:{en:'My symptoms have persisted until now without any sign of improvement. My GP used an internal system to ask specialists about my case, who then advised prescribing different medications. During this period, I\u2019ve been doing regular blood tests. Also, I had an endoscopy done to rule out any kind of obstruction in my digestive system.', 
+  zh:'我的症狀持續至今，一直沒有好轉的跡象。家庭醫生使用內部系統向專科醫生諮詢我的病情，專家建議處方不同的藥物給我。在這段期間，我一直定期接受驗血。此外，我亦接受了內視鏡檢查，以排除消化系統出現任何阻塞的可能。'} },
 
   { date:{en:'Oct 25 to Jan 26', zh:'2025年10月至2026年1月'}, 
-  title:{en:'Specalist Investigation', zh:'專科檢查'}, 
-  body:{en:'In Oct, I turned 18, this allowed my GP to refer me to community gastroenterology team for further assessment and investigation. One month after my referral, I had a consultation with a community gastroenterologist. The doctor analyzed my medical history and my symptoms and made a diagnosis of functional dyspepsia. I was told that this is a condition where there is no obvious physical cause for the symptoms and some patient can be managed with medication, including a low dose of an antidepressant to help reduce the sensitivity of the nerves involved in digestion. I did not start the recommended medication until January 2026 because industrial action by resident doctors restrict me to see a GP.', 
+  title:{en:'Specialist investigation', zh:'專科檢查'}, 
+  body:{en:'In Oct, I turned 18, which allowed my GP to refer me to the community gastroenterology team for further assessment and investigation. One month after my referral, I had a consultation with a community gastroenterologist. The doctor analysed my medical history and symptoms and made a diagnosis of functional dyspepsia. I was told that this is a condition where there is no obvious physical cause for the symptoms, and some patients can be managed with medication, including a low dose of an antidepressant to help reduce the sensitivity of the nerves involved in digestion. I did not start the recommended medication until January 2026, because industrial action by resident doctors prevented me from seeing a GP.', 
   zh:'十月時我剛滿18歲，家庭醫生將我轉介至社區腸胃科團隊，作進一步評估及檢查。轉介後大約一個月，我與一位腸胃科醫生會面。醫生分析了我的病歷及症狀後，診斷我患有功能性消化不良（functional dyspepsia）。醫生解釋，這是一種沒有明顯身體病因的病症，部分病人可以透過藥物控制，包括低劑量的抗抑鬱藥，以幫助降低消化系統相關神經的敏感度。由於駐院醫生當時進行工業行動，令我未能見到家庭醫生，因此我一直到2026年1月才開始服用建議的藥物。'} },
   
   { date:{en:'Feb 26 to April 26', zh:'2026年2月至4月'}, 
-  title:{en:'Continue Monitoring', zh:'持續監察'}, 
-  body:{en:'I was prescribed to take the new medications suggested by the gastroenterologist in January 2026. Even after taking different combination of medications, I could not get relief from the symptoms. However, initially, I felt slight relief for about two months, but gradually my situation became worse. I started losing weight and vomiting. There was nausea and bloating as well. My GP called the gastroenterologist again for further information. The gastroenterologist suggested me for MRA scan to find out the causes of my symptoms.', 
-    zh:'我在2026年1月開始服用腸胃科醫生建議的新藥物。即使服用了不同組合的藥物，我的症狀仍未能得到紓緩。不過，初時我確實感到輕微好轉，維持了大約兩個月，但情況其後逐漸轉差。我開始體重下降並出現嘔吐，同時亦有反冒及腹脹的情況。家庭醫生再次聯絡腸胃科醫生查詢詳情，腸胃科醫生建議我接受磁力共振血管造影（MRA）掃描，以找出症狀的成因。'} },
-  { date:{en:'May 26 to Early June 26', zh:'2026年5月至6月初'}, 
-  title:{en:'Constant Monitoring', zh:'持續監察'}, 
-  body:{en:'It took approximately two months for me to have the MRA scan. The scan showed a possible structural abnormality that could potentially be related to my symptoms.Around the same time, my condition become worse. I was vomiting every day and experiencing persistent nausea, severe abdominal pain, and loss of appetite, which resulted in restricted food intake. After seeing my GP, I was referred back to Same Day Emergency Care(SDEC). I had repeat blood tests and a CT scan to check for any obstruction or other acute problems. The results were reported as normal, and I was discharged again.', 
+  title:{en:'Continued monitoring', zh:'持續監察'}, 
+  body:{en:'I was prescribed the new medications suggested by the gastroenterologist in January 2026. Even after taking different combinations of medications, I could not get relief from the symptoms. Initially I felt slight relief for about two months, but gradually my situation became worse. I started losing weight and vomiting, and I also experienced nausea and bloating. My GP called the gastroenterologist again for further information. The gastroenterologist suggested an MRA scan to find out the cause of my symptoms.', 
+    zh:'我在2026年1月開始服用腸胃科醫生建議的新藥物。即使服用了不同組合的藥物，我的症狀仍未能得到紓緩。不過，初時我確實感到輕微好轉，維持了大約兩個月，但情況其後逐漸轉差。我開始體重下降並出現嘔吐，同時亦有反胃及腹脹的情況。家庭醫生再次聯絡腸胃科醫生查詢詳情，腸胃科醫生建議我接受磁力共振血管造影（MRA）掃描，以找出症狀的成因。'} },
+
+  { date:{en:'May 26 to early June 26', zh:'2026年5月至6月初'}, 
+  title:{en:'Constant monitoring', zh:'持續監察'}, 
+  body:{en:'It took approximately two months for me to have the MRA scan. The scan showed a possible structural abnormality that could potentially be related to my symptoms. Around the same time, my condition got worse. I was vomiting every day and experiencing persistent nausea, severe abdominal pain, and loss of appetite, which resulted in restricted food intake. After seeing my GP, I was referred back to Same Day Emergency Care (SDEC). I had repeat blood tests and a CT scan to check for any obstruction or other acute problems. The results were reported as normal, and I was discharged again.', 
   zh:'我大約等待了兩個月才接受磁力共振血管造影掃描。掃描結果顯示可能存在結構性異常，或與我的症狀有關。大約同一時間，我的病情開始惡化。我每日都嘔吐，並持續出現噁心、嚴重腹痛及食慾不振，導致我進食量大幅減少。見過家庭醫生後，我再次被轉介至醫院日間治療中心（SDEC）。我接受了重複的血液檢查及電腦斷層掃描，以檢查是否有阻塞或其他急性問題。結果顯示正常，我其後再次獲安排出院。'} },
-  { date:{en:'Mid June to Mid July', zh:'2026年6月中至7月中'}, 
+
+  { date:{en:'Mid June to mid July', zh:'2026年6月中至7月中'}, 
   title:{en:'Hospital admission', zh:'住院'}, 
-  body:{en:'My symptoms continued to get worse, so I called 111 for help. I was advised to attend A&E for further investigation. I initially received IV fluids in A&E before being transferred to the Acute Medical Unit(AMU) for further assessment. I was subsequently admitted to the gastroenterology ward for further investigation and treatment. During this admission, I was placed a feeding tube because I was struggling in intaking food. I underwent multiple endoscopies and had daily blood tests to monitor my condition. My parents requested a translator and a second opinion regarding my case. Having a translator was very helpful for my parents in understanding the diagnosis and the information provided by the medical team. Despite the possible structural abnormality identified on the MRA scan, my diagnosis of functional dyspepsia remained unchanged.', 
+  body:{en:'My symptoms continued to get worse, so I called 111 for help. I was advised to attend A&E for further investigation. I initially received IV fluids in A&E before being transferred to the Acute Medical Unit (AMU) for further assessment. I was subsequently admitted to the gastroenterology ward for further investigation and treatment. During this admission, I was fitted with a feeding tube because I was struggling to take in food. I underwent multiple endoscopies and had daily blood tests to monitor my condition. My parents requested a translator and a second opinion regarding my case. Having a translator was very helpful for my parents in understanding the diagnosis and the information provided by the medical team. Despite the possible structural abnormality identified on the MRA scan, my diagnosis of functional dyspepsia remained unchanged.', 
     zh:'我的症狀持續惡化，於是致電111求助，並建議前往急症室作進一步檢查。我在急症室先接受了靜脈輸液，其後轉往急症醫療病房（AMU）作進一步評估，之後再被安排入住腸胃科病房，接受進一步檢查及治療。在這次住院期間，由於我一直難以正常進食，醫護人員為我安排了餵食喉。我接受了多次內視鏡檢查，並每日進行驗血以監察病情。我的父母要求安排傳譯員，並要求就我的病情尋求第二醫療意見。有傳譯員在場，對我父母理解診斷結果及醫療團隊提供的資訊非常有幫助。儘管磁力共振血管造影掃描曾顯示可能存在結構性異常，我最終的診斷仍然維持為功能性消化不良。'} },
+
   { date:{en:'Mid July', zh:'2026年7月中'}, 
-  title:{en:'Hospital Discharge', zh:'出院'}, 
-  body:{en:'When I was discharged from hospital, a detailed follow-up plan was sent to my GP via dicharge letter. I also got a copy for the discharge letter. This allow me to understand what to expect from my follow-up care, what symptoms I should monitor, and when I should seek further medication care.', 
-  zh:'【出院時，一份詳細的跟進計劃透過出院信送交我的家庭醫生，我自己亦獲得一份出院信副本。這讓我清楚了解往後跟進治療會是怎樣、需要留意哪些症狀，以及在什麼情況下應該尋求進一步的醫療協助。'} },
-  /*{ date:{en:'[Year]', zh:'【年份】'}, title:{en:'[What happened]', zh:'【發生了什麼事】'}, body:{en:'[Describe how things were resolved, or where things stand now, and what support helped most.]', zh:'【描述事情最終如何解決，或目前的狀況，以及哪些支援對你幫助最大。】'} },*/
+  title:{en:'Hospital discharge', zh:'出院'}, 
+  body:{en:'When I was discharged from hospital, a detailed follow-up plan was sent to my GP via a discharge letter. I also got a copy of the discharge letter. This allowed me to understand what to expect from my follow-up care, what symptoms I should monitor, and when I should seek further medical care.', 
+  zh:'出院時，一份詳細的跟進計劃透過出院信送交我的家庭醫生，我自己亦獲得一份出院信副本。這讓我清楚了解往後跟進治療會是怎樣、需要留意哪些症狀，以及在什麼情況下應該尋求進一步的醫療協助。'} }
 ];
 
 const LEGAL = {
@@ -483,10 +504,11 @@ const LEGAL = {
     }
   ]
 };
+
 const FIRST_AID=[
   {
     key:'cpr',
-    title:{en:"CPR(Adult)", zh:"成人心肺復甦法"},
+    title:{en:"CPR (Adult)", zh:"成人心肺復甦法"},
     when:{en:"Someone is unresponsive and not breathing normally.",zh:'有人失去反應，並沒有正常呼吸。'},
     steps:[
       {en:'Check for danger, then check if the person responds \u2014 tap their shoulders and shout.', zh:'先檢查現場是否安全，然後檢查對方是否有反應——輕拍肩膀並大聲呼喚。'},
@@ -562,5 +584,22 @@ const FIRST_AID=[
       {en:'Do not burst any blisters.', zh:'切勿弄破水疱。'},
       {en:'Call 999 or go to A&E for burns larger than your palm, on the face/hands/genitals, or if the person is a baby, child, or in shock.', zh:'如燒傷範圍大過手掌、位於面部／手部／私處，或傷者是嬰兒、兒童或出現驚恐，請致電999或前往急症室。'}
     ]
-  },      
+  }
+];
+
+const CONDITION_CATEGORIES = [
+  { key:'allergies', name:{en:'Allergies', zh:'過敏'}, situationIds:['self-4','ae-5'] },
+  { key:'bones', name:{en:'Bones, Joints & Muscles', zh:'骨骼、關節及肌肉'}, situationIds:['utc-1','utc-2'] },
+  { key:'children', name:{en:'Children & Babies', zh:'兒童及嬰兒'}, situationIds:['self-7','111-3','ae-10'] },
+  { key:'dental', name:{en:'Dental', zh:'牙科'}, situationIds:['self-6','111-6','ae-8'] },
+  { key:'digestive', name:{en:'Digestive', zh:'消化系統'}, situationIds:['self-5','111-4'] },
+  { key:'ent', name:{en:'Ear, Nose & Throat', zh:'耳鼻喉'}, situationIds:['pharmacy-1','pharmacy-2','pharmacy-3'] },
+  { key:'eyes', name:{en:'Eyes', zh:'眼睛'}, situationIds:['utc-5'] },
+  { key:'general', name:{en:'General & Long-term Conditions', zh:'一般及長期病患'}, situationIds:['self-2','gp-2','gp-3'] },
+  { key:'heart', name:{en:'Heart & Circulatory', zh:'心臟及循環系統'}, situationIds:['ae-1','ae-2','ae-3'] },
+  { key:'infections', name:{en:'Infections', zh:'感染'}, situationIds:['pharmacy-7','ae-6'] },
+  { key:'mentalhealth', name:{en:'Mental Health', zh:'精神健康'}, situationIds:['gp-5','111-5','ae-7'] },
+  { key:'respiratory', name:{en:'Respiratory', zh:'呼吸系統'}, situationIds:['self-1','ae-4'] },
+  { key:'skin', name:{en:'Skin', zh:'皮膚'}, situationIds:['self-3','pharmacy-4','pharmacy-5','pharmacy-6','gp-4','utc-3','utc-4'] },
+  { key:'womenshealth', name:{en:'Women\u2019s Health & Pregnancy', zh:'女性健康及懷孕'}, situationIds:['pharmacy-9','gp-7','gp-8','ae-9'] },
 ];
