@@ -103,7 +103,7 @@ const UI = {
         en:"My experience",
         zh:"我的經歷"
     },
-    section3Note:{
+    storyIntro:{
       en:"This is my own experience using the NHS system.",
       zh:"這是我使用英國國民醫療服務體系（NHS）的親身經歷。"
     },
