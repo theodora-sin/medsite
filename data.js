@@ -112,7 +112,7 @@ const UI = {
       zh:"急救"
     },
     firstAidNote:{
-      en:"Quick steps for common emergencies while you wait for help.These don't replace calling 999 in a genuine emergency\u2014 <strong>call first, then help</strong>",
+      en:"Quick steps for common emergencies while you wait for help.These don't replace calling 999 in a genuine emergency\u2014 call first, then help",
       zh:"應對常見緊急情況嘅簡易步驟，適用於等候救援期間。在真正緊急情況下，這些步驟並不能取代致電999——請先致電求助，再開始施救。"
     },
     firstAidSources:{
