@@ -148,7 +148,7 @@ function renderLangToggle(){
 
 function applyZoom(){
   const isMobile = window.matchMedia('(max-width:640px)').matches;
-  const base = isMobile ? 16.5 : 19;
+  const base = isMobile ? 17.5 : 22;
   document.documentElement.style.fontSize = (base + zoomStep) + 'px';
   localStorage.setItem('medsite_zoom', zoomStep);
 }
