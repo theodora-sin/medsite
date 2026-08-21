@@ -122,7 +122,7 @@ function renderStaticText(){
   document.getElementById('supportHeading').textContent = t(TABS[1].label);
   document.getElementById('storyHeading').textContent = t(TABS[2].label);
   document.getElementById("firstAidNote").textContent = t(UI.firstAidNote);
-  document.getElementById('firstAidSource').textContent= t(UI.firstAidSources);
+  document.getElementById('firstAidSources').textContent= t(UI.firstAidSources);
 }
 
 function renderLangToggle(){
