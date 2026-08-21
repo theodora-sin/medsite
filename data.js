@@ -106,7 +106,22 @@ const UI = {
     footerText:{
         en:"<strong>About this site:\u00A0</strong> This is built from personal experience navigating NHS care in the UK.\u00A0 It meant to help you recognise a situation and find the right place faster.\u00A0 It is not medical advice, a diagnosis or a substitute for a clinician who can examine you.\u00A0 Service details (opening hours, exact age ranges, what a pharmacy can treat) can change over time and vary slightly across England, Scotland, Wales and Northern Ireland.\u00A0 Always confirm specifies with NHS 111, your GP practice or nhs.uk. If you are in immediate danger, please call 999",
         zh:'<strong>關於這個網站：</strong>這個網站根據自己在英國求診的親身經歷建立了，希望幫助你更快辨認情況、找到合適的求診途徑——本網站並非醫療建議、診斷，亦不能取代能夠親自為你檢查的醫護人員。各項服務細節（開放時間、確實年齡範圍、藥房可治療的病症等）會隨時間改變，英格蘭、蘇格蘭、威爾斯及北愛爾蘭之間亦略有不同——請以 NHS 111、你的家庭醫生診所或 nhs.uk 的最新資料為準。如有即時危險，請致電 999。'
-
+    },
+    firstAidTabLabel:{
+      en:"First Aid",
+      zh:"急救"
+    },
+    firstAidNote:{
+      en:"Quick steps for common emergencies while you wait for help.These don't replace calling 999 in a genuine emergency\u2014 <strong>call first, then help</strong>",
+      zh:"應對常見緊急情況嘅簡易步驟，適用於等候救援期間。在真正緊急情況下，這些步驟並不能取代致電999——請先致電求助，再開始施救。"
+    },
+    firstAidSources:{
+      en:"Steps adapted from general public first aid guidance published by the NHS and Mayo Clinic.",
+      zh:"以上步驟參考NHS及Mayo Clinic公開發布的一般急救指引編寫而成。"
+    },
+    firstAidWhenLabel:{
+      en:"When to use",
+      zh:"何時適用"
     },
 };
 
@@ -452,3 +467,71 @@ const LEGAL = {
     }
   ]
 };
+const FIRST_AID=[
+  {
+    key:'cpr',
+    title:{en:"CPR(Adult)", zh:"成人心肺復甦法"},
+    when:{en:"Someone is unresponsive and not breathing normally.",zh:'有人失去反應，並沒有正常呼吸。'},
+    steps:[
+      {en:'Check for danger, then check if the person responds \u2014 tap their shoulders and shout.', zh:'先檢查現場是否安全，然後檢查對方是否有反應——輕拍肩膀並大聲呼喚。'},
+      {en:'If there is no response, call 999 immediately (or ask someone else to call while you continue).', zh:'如果對方沒有反應，立即致電999（或請其他人代為致電，你繼續施救）。'},
+      {en:'Open the airway by tilting the head back and lifting the chin. Check for normal breathing for no more than 10 seconds.', zh:'將頭部向後仰並抬起下巴，打開氣道。檢查對方是否有正常呼吸，時間不超過10秒。'},
+      {en:'If they are not breathing normally, start chest compressions: push hard and fast in the centre of the chest, 5\u20136cm deep, at 100\u2013120 compressions per minute.', zh:'如果對方沒有正常呼吸，開始胸外按壓：在胸部中央用力快速按壓，深度5至6厘米，速度為每分鐘100至120次。'},
+      {en:'If trained and willing, give 2 rescue breaths after every 30 compressions. If not, continue compression-only CPR without stopping.', zh:'如果你受過訓練並願意，每30次按壓後給予2次人工呼吸。如果不熟悉，可持續只做胸外按壓，不需中斷。'},
+      {en:'Continue until emergency help arrives, an AED is ready to use, or the person starts breathing normally.', zh:'持續進行，直至急救人員到達、AED（自動體外心臟去顫器）可以使用，或對方恢復正常呼吸為止。'},
+      {en:'If an AED is available, switch it on and follow its voice instructions \u2014 it will tell you exactly what to do.', zh:'如現場有AED，開啟後跟隨語音指示進行——機器會清楚告訴你應該怎樣做。'}
+    ],
+    warning:{en:'This is guidance only and doesn\u2019t replace hands-on training. Consider taking a certified first aid course.', zh:'以上指引僅供參考，並不能取代實際訓練。建議報讀認可的急救課程。'}
+  },
+  {
+    key:'allergic',
+    title:{en:'Severe allergic reaction (anaphylaxis)', zh:'嚴重過敏反應（過敏性休克）'},
+    when:{en:'Someone has swelling of the face or throat, difficulty breathing, or a widespread rash after a known trigger.', zh:'有人在接觸已知致敏原後，出現面部或喉嚨腫脹、呼吸困難，或全身出疹。'},
+    steps:[
+      {en:'Call 999 immediately and say \u2018anaphylaxis\u2019.', zh:'立即致電999，並清楚說出「anaphylaxis」（過敏性休克）。'},
+      {en:'If the person has an adrenaline auto-injector (e.g. EpiPen), help them use it, or use it for them, in the outer mid-thigh.', zh:'如傷者有腎上腺素自動注射器（例如EpiPen），協助他們使用，或代為在大腿外側中段注射。'},
+      {en:'Help the person lie flat with their legs raised. If they are struggling to breathe, let them sit up instead \u2014 whichever is more comfortable for breathing.', zh:'協助傷者平躺並抬高雙腳。如果他們感到呼吸困難，可讓他們坐起——以較容易呼吸的姿勢為準。'},
+      {en:'If there is no improvement after 5 minutes and a second auto-injector is available, give a second dose.', zh:'如5分鐘後仍未見好轉，且有第二支自動注射器，可給予第二劑。'},
+      {en:'If the person becomes unresponsive and is not breathing normally, begin CPR.', zh:'如傷者失去反應並沒有正常呼吸，開始進行心肺復甦法。'},
+      {en:'Stay with them until the ambulance arrives, even if they seem to improve \u2014 symptoms can return.', zh:'即使情況似乎有好轉，都應陪伴傷者直至救護車到達——症狀有機會再次出現。'}
+    ]
+  },
+  {
+    key:'bleeding',
+    title:{en:'Severe bleeding', zh:'嚴重出血'},
+    when:{en:'Someone has a wound that is bleeding heavily.', zh:'有人的傷口大量出血。'},
+    steps:[
+      {en:'Call 999 if the bleeding is severe or won\u2019t stop.', zh:'如出血嚴重或無法止血，立即致電999。'},
+      {en:'Apply firm, direct pressure on the wound with a clean cloth or dressing. Press hard and keep pressing.', zh:'用乾淨的布或敷料直接用力按壓傷口，持續施壓。'},
+      {en:'If possible, raise the injured area above the level of the heart while continuing to press.', zh:'如可行，將受傷部位提高至高於心臟水平，同時繼續施壓。'},
+      {en:'Do not remove anything embedded in the wound \u2014 press around it instead.', zh:'切勿移除插入傷口的任何物件——應按壓其周圍位置。'},
+      {en:'Once bleeding is controlled, secure the dressing firmly with a bandage, but not so tight it cuts off circulation.', zh:'止血後，用繃帶固定敷料，但不要綁得太緊以致阻礙血液循環。'},
+      {en:'Keep the person warm and still, and watch for signs of shock (pale, cold, clammy skin, rapid breathing) while waiting for help.', zh:'讓傷者保持溫暖並盡量不要移動，同時留意休克徵狀（皮膚蒼白、冰冷、濕黏，呼吸急促），並等候救援。'}
+    ]
+  },
+  {
+    key:'fractures',
+    title:{en:'Suspected broken bone', zh:'懷疑骨折'},
+    when:{en:'Someone has a suspected fracture after a fall, blow, or accident.', zh:'有人在跌倒、撞擊或意外後懷疑骨折。'},
+    steps:[
+      {en:'Keep the person still and support the injured area in the position you found it \u2014 don\u2019t try to straighten or realign it.', zh:'讓傷者保持不動，並以你發現時的姿勢支撐受傷部位——切勿嘗試拉直或復位。'},
+      {en:'If you have padding (e.g. rolled clothing or a towel), place it gently around the injury to support it.', zh:'如有軟墊物料（例如捲起的衣物或毛巾），可輕輕放在傷處周圍作支撐。'},
+      {en:'Do not give the person anything to eat or drink, in case they need surgery.', zh:'不要給傷者任何食物或飲品，以防之後需要進行手術。'},
+      {en:'Call 999 for a suspected fracture of the neck, back, hip, thigh, or if the bone is visibly deformed or piercing the skin.', zh:'如懷疑頸部、背部、髖部、大腿骨折，或骨頭明顯變形或穿出皮膚，請致電999。'},
+      {en:'For a suspected fracture of a limb (arm, wrist, ankle) that is stable, you can go to an Urgent Treatment Centre instead of A&E \u2014 many can X-ray on site.', zh:'如懷疑手臂、手腕、腳踝等肢體骨折，情況穩定，可前往緊急治療中心（毋須去急症室）——不少中心設有即場X光服務。'}
+    ]
+  },
+  {
+    key:'choking',
+    title:{en:'Choking (adult)', zh:'哽塞（成人）'},
+    when:{en:'Someone is coughing weakly, can\u2019t speak, breathe, or cough, or is turning blue.', zh:'有人咳嗽無力、無法說話、呼吸或咳嗽，或開始面色發紫。'},
+    steps:[
+      {en:'If they can cough forcefully, encourage them to keep coughing \u2014 don\u2019t interfere yet.', zh:'如果對方仍能用力咳嗽，鼓勵他們繼續咳嗽——暫時不要干預。'},
+      {en:'If the cough becomes weak or they can\u2019t breathe, speak, or cough, call 999 (or ask someone to call).', zh:'如咳嗽變得無力，或無法呼吸、說話或咳嗽，致電999（或請人代為致電）。'},
+      {en:'Lean the person forward and give up to 5 sharp back blows between the shoulder blades with the heel of your hand.', zh:'讓對方身體向前傾，用掌根在其肩胛骨之間用力拍打，最多5下。'},
+      {en:'If that doesn\u2019t clear the blockage, give up to 5 abdominal thrusts: stand behind them, make a fist above their navel, and pull sharply inward and upward.', zh:'如仍未能清除阻塞，可進行最多5次腹部推擠：站在對方背後，於肚臍上方握拳，然後用力向內、向上拉扯。'},
+      {en:'Keep alternating between 5 back blows and 5 abdominal thrusts until the blockage clears or help arrives.', zh:'持續交替進行5下背部拍打及5下腹部推擠，直至阻塞清除或救援到達。'},
+      {en:'If the person becomes unresponsive, lower them to the ground carefully and begin CPR.', zh:'如對方失去反應，小心將其放到地上，並開始心肺復甦法。'}
+    ]
+  }      
+];
