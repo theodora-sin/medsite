@@ -26,7 +26,6 @@ const ICONS = {
   ae:       '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3v6M12 21v-6M3 12h6M21 12h-6"/><circle cx="12" cy="12" r="9"/></svg>',
 };
 
-/* ---------------- share / toast ---------------- */
 let toastTimer;
 function showToast(msg){
   let toast = document.getElementById('toast');
@@ -126,6 +125,8 @@ function renderStaticText(){
   document.getElementById('firstAidNote').textContent = t(UI.firstAidNote);
   document.getElementById('firstAidSources').textContent = t(UI.firstAidSources);
   document.getElementById('quickPickHeading').textContent = t(UI.quickPickHeading);
+  document.getElementById('conditionsNote').textContent = t(UI.conditionsNote);
+  document.getElementById('conditionsNhsLink').textContent = t(UI.conditionsNhsLabel);
 }
 
 function renderLangToggle(){
@@ -148,7 +149,7 @@ function renderLangToggle(){
 
 function applyZoom(){
   const isMobile = window.matchMedia('(max-width:640px)').matches;
-  const base = isMobile ? 17.5 : 22;
+  const base = isMobile ? 16.5 : 19;
   document.documentElement.style.fontSize = (base + zoomStep) + 'px';
   localStorage.setItem('medsite_zoom', zoomStep);
 }
@@ -172,10 +173,11 @@ function renderZoomToggle(){
 }
 
 const TABS = [
-  { key:'guide',    label:{en:'Guide', zh:'指南'} },
-  { key:'support',  label:{en:'Support', zh:'支援'} },
-  { key:'firstaid', label:{en:'First Aid', zh:'急救'} },
-  { key:'story',    label:{en:'Story', zh:'故事'} },
+  { key:'guide',      label:{en:'Guide', zh:'指南'} },
+  { key:'support',    label:{en:'Support', zh:'支援'} },
+  { key:'firstaid',   label:{en:'First Aid', zh:'急救'} },
+  { key:'conditions', label:{en:'Conditions A-Z', zh:'病症索引'} },
+  { key:'story',      label:{en:'Story', zh:'故事'} },
 ];
 
 function renderTabBar(){
@@ -214,6 +216,7 @@ function showActiveTab(){
   document.getElementById('guide').hidden = activeTab !== 'guide';
   document.getElementById('support').hidden = activeTab !== 'support';
   document.getElementById('firstaid').hidden = activeTab !== 'firstaid';
+  document.getElementById('conditions').hidden = activeTab !== 'conditions';
   document.getElementById('story').hidden = activeTab !== 'story';
   document.querySelectorAll('.tab-btn').forEach(btn=>{
     btn.setAttribute('aria-selected', btn.dataset.tab === activeTab ? 'true' : 'false');
@@ -236,6 +239,61 @@ function renderFirstAid(){
   observeReveal(grid.querySelectorAll('.firstaid-card'));
 }
 
+function jumpToGuideEntry(id){
+  const situation = SITUATIONS.find(s => s.id === id);
+  if(!situation) return;
+  activeTab = 'guide';
+  localStorage.setItem('medsite_tab', activeTab);
+  showActiveTab();
+  activeTiers = new Set(['all']);
+  showSavedOnly = false;
+  syncChips();
+  const searchInput = document.getElementById('searchInput');
+  searchInput.value = t(situation.title);
+  renderCards();
+  document.querySelector('.tabbar').scrollIntoView({behavior:'smooth', block:'start'});
+}
+
+function renderConditions(){
+  const grid = document.getElementById('conditionsList');
+  const sitById = Object.fromEntries(SITUATIONS.map(s => [s.id, s]));
+
+  grid.innerHTML = CONDITION_CATEGORIES.map(cat => {
+    const entries = cat.situationIds
+      .map(id => sitById[id])
+      .filter(Boolean)
+      .sort((a, b) => t(a.title).localeCompare(t(b.title)));
+
+    const items = entries.map(s => {
+      const nhsQuery = encodeURIComponent(`site:nhs.uk ${t(s.title)}`);
+      return `
+        <div class="conditions-item">
+          <h4 class="conditions-item-title">${t(s.title)}</h4>
+          <p class="conditions-item-summary">${t(s.when)}</p>
+          <div class="conditions-item-actions">
+            <button class="conditions-link" data-id="${s.id}" type="button">${t(UI.viewInGuideLabel)}</button>
+            <a class="conditions-external-link" href="https://www.google.com/search?q=${nhsQuery}" target="_blank" rel="noopener">${t(UI.nhsReferenceLabel)}</a>
+          </div>
+        </div>
+      `;
+    }).join('');
+
+    return `
+      <section class="conditions-category">
+        <h3 class="conditions-category-heading">${t(cat.name)}</h3>
+        <div class="conditions-category-grid">${items}</div>
+      </section>
+    `;
+  }).join('');
+
+  grid.querySelectorAll('.conditions-link').forEach(btn=>{
+    btn.addEventListener('click', ()=> jumpToGuideEntry(btn.dataset.id));
+  });
+
+  observeReveal(grid.querySelectorAll('.conditions-category'));
+}
+
+/* ---------------- quick-pick icon row ---------------- */
 function renderQuickPick(){
   const box = document.getElementById('quickPick');
   box.innerHTML = TIERS.map(tier => `
@@ -393,6 +451,7 @@ function renderSupport(){
   observeReveal(grid.querySelectorAll('.support-item'));
 }
 
+/* ---------------- story ---------------- */
 function renderStory(){
   const wrap = document.getElementById('storyTimeline');
   wrap.innerHTML = STORY.map(s => `
@@ -423,6 +482,7 @@ function observeReveal(nodes){
   nodes.forEach(node => revealObserver.observe(node));
 }
 
+/* ---------------- scroll to top ---------------- */
 function initScrollTop(){
   const btn = document.getElementById('scrollTop');
   window.addEventListener('scroll', ()=>{
@@ -444,6 +504,7 @@ function renderAll(){
   renderCards();
   renderSupport();
   renderFirstAid();
+  renderConditions();
   renderStory();
   showActiveTab();
 }
