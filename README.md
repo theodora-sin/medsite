@@ -10,7 +10,7 @@ That experience is what led me to start building MedSite.
 ## Guide:
 Guide is seperate into 6 different categories, from self-care to call 999, this site has input common symptom and illness, and explain what you can expect from nhs, what question you can ask and when you need to further help. 
 
-## Suport:
+## Support:
 Support is a place to support your healthcare journey, what you can get away from the NHS, what you can ask for when you are discharged from the hospital, etc…
 Sometimes the hardest part isn’t the treatment itself- it’s knowing what happens afterwards.
 
